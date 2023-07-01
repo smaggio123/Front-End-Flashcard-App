@@ -1,0 +1,32 @@
+.sidebar {
+    background-color: #f2f2f2;
+    width: 20%;
+    float: left;
+    height: 100vh;
+}
+td {
+    border: 1px solid;
+  }
+#homeLeftBarTable{
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.homeLeftBarTd.clicked{
+    background-color: grey;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width:50px;
+    margin-right: 10px;
+  }

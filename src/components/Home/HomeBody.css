@@ -1,0 +1,42 @@
+.content {
+    margin-left: 20%;
+    padding: 20px;
+}
+#homeBodyTable{
+    color: white;
+    width: 80%;
+    height: 10%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+tr{
+    margin-bottom: 60px;
+}
+.homeBodyTd{
+    height: 20px;
+    width:100%;
+}
+.homeBodyTr{
+    height: 60px;
+}
+.homeBodyTd.clicked{
+    background-color: grey;
+}
+.options-box{
+    border: 1px solid white;
+    width:200px;
+    height:60px;   
+}
+.options-menu{
+    display: flex;
+    flex-wrap: wrap;
+}
+.item{
+    flex-basis: 50%;
+    box-sizing: border-box;
+    /* padding: 10px; */
+}
+thead{
+    text-align: center;
+}

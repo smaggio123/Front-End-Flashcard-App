@@ -1,0 +1,124 @@
+#signup_welcome{
+    position:absolute;
+    color: white;
+    text-align: center;
+    margin-left: 12%;
+}
+
+#signup_label1{
+    position:absolute;
+    color:white;
+    font-size: x-large;
+    margin-top: 17%;
+    margin-left: -20%;
+}
+
+#signup_label2{
+    position:absolute;
+    color:white;
+    font-size: x-large;
+    margin-top: 27%;
+    margin-left: -20%;
+}
+
+#signup_label3{
+    position:absolute;
+    color:white;
+    font-size: x-large;
+    margin-top: 34%;
+    margin-left: -20%;
+}
+
+#signup_label4{
+    position:absolute;
+    color:white;
+    font-size: x-large;
+    margin-top: 40%;
+    margin-left: -30%;
+}
+
+#signup_input1{
+    position:absolute;
+    font-size: x-large;
+    width: 56%;
+    height: 7%;
+    margin-top: 15%;
+    border-radius: 10px; 
+    margin-left: 10px;
+    padding: .4rem 0;
+}
+
+
+#signup_input2{
+    position:absolute;
+    font-size: x-large;
+    width: 56%;
+    height: 7%;
+    margin-top: 23%;
+    margin-left: 10px;
+    border-radius: 10px; 
+    padding: .4rem 0;
+}
+
+#signup_input3{
+    position:absolute;
+    font-size: x-large;
+    width: 56%;
+    height: 7%;
+    margin-top: 29%;
+    margin-left: 10px;
+    border-radius: 10px; 
+    padding: .4rem 0;
+}
+
+#signup_input4{
+    position:absolute;
+    font-size: x-large;
+    width: 56%;
+    height: 7%;
+    margin-top: 35%;
+    margin-left: 10px;
+    border-radius: 10px; 
+    padding: .4rem 0;
+}
+
+#signup_button{
+    position:absolute;
+    font-size: large;
+    margin-top: 45%;
+    width: 20%;
+    height: 10%;
+    margin-left: 7%;
+    border-radius: 10px;
+
+}
+
+#signup_signup{
+    position:absolute;
+    font-size: x-large;
+    color: white;
+    margin-top: 55%;
+    margin-left: 11%;
+}
+
+#signup_solid{
+    position: absolute;
+    color: white;
+    
+    top:10%;
+    left:30%;
+    /* width: 500px;
+    height: 550px; */
+    width: 30%;
+    height: 60%;
+    
+    border-radius: 10%;
+    padding-right: 15%;
+    padding-top: 1%;
+    padding-bottom: 10%;
+    border-style: solid;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+
+}

@@ -1,0 +1,111 @@
+#back-button {
+    position: fixed;
+    top: 20px; /* Adjust the value as per your preference */
+    left: 20px; /* Adjust the value as per your preference */
+    height:60px;
+    width: 70px;
+    background-color: transparent;
+    border:none;
+    font-size: x-large;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+#settings-btn{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    height:60px;
+    width:70px;
+    border:none;
+    background-color: transparent;
+    
+}
+.inverted-icon{
+    /* filter: invert(1); */
+    color:white;
+}
+
+#writtenHeading{
+    margin-top: 10px;
+}
+#writtenShownWord{
+    margin-top: 50px;
+}
+#writtenCenteringDiv{
+    background-color: grey;
+    text-align: center;
+    height:100vh;
+    width:98vw;
+}
+#writtenHintDiv{
+    margin-top: 50px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    justify-content:space-evenly;
+}
+#writtenHintButton{
+    height:50px;
+    width: 100px;
+    font-size: x-large;
+}
+#writtenHintShown{
+    visibility: visible;
+}
+#writtenHintHidden{
+    visibility: hidden;
+}
+#writtenInput{
+    margin-top: 100px;
+    font-size: x-large;
+    width: 1000px;
+    height:50px;
+}
+#writtenBtnDiv{
+    display: flex;
+    justify-content:center;
+    margin-top: 100px;
+}
+#writtenIDKButton{
+    height:50px;
+    width:100px;
+    margin-right: 50px;
+    
+}
+#writtenSubmitButton{
+    height:50px;
+    width:100px;
+}
+
+#writtenSettings{
+    height: 85vh;
+    margin-top: 100px;
+    width: 98vw;
+}
+#writtenSettingsHeader{
+    color: white;
+    text-align: center;
+}
+#writtenSettingsContainer{
+    height: 80vh;
+    width: 98vw;
+    text-align: center;
+}
+#writtenSettingsContents{
+    height: 500px;
+    width: 70vw;
+    border-radius: 50px;
+    margin-left: 13%;
+    border: 1px solid white;
+}
+.writtenSettingAttributes{
+    margin-top: 25px;
+    justify-content:space-between;
+    display: flex;
+    color:white;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+#writtenUpdateBtn{
+    height:50px;
+    width:100px;
+}
