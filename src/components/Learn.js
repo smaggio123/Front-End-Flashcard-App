@@ -1,5 +1,5 @@
 import "./Learn.css";
-import { React, useState } from 'react';
+import { React } from 'react';
 import { useLocation,useNavigate } from 'react-router-dom';
 
 function Learn(){
@@ -13,22 +13,24 @@ function Learn(){
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const selectedData = searchParams.get('data');
-    /*
+    
     const goToCopyArea=()=>{
-        //navigate("/books")
+        navigate(`./copy?data=${encodeURIComponent(selectedData)}`)
     }
-    */
+    
     const goToWriting=()=>{
-        // navigate(`/home/SetDisplay/learn/written?data=${encodeURIComponent(selectedData)}`)
         navigate(`./written?data=${encodeURIComponent(selectedData)}`)
     }
     return(
         <>
-            <h1>Learn</h1>
-            {/* <button onClick={()=>goToCopyArea()}>Copy Area</button> */}
+        <div id="learnContainingDiv">
+
+            <h1 id="learnTitleHeading">Learn</h1>
+            <button onClick={()=>goToCopyArea()}>Copy Area</button>
             <button>Fill in the Blanks</button>
             <button onClick={()=>goToWriting()}>Writing</button>
             <button>Test</button>
+        </div>
         </>
     )
 }

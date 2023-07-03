@@ -8,6 +8,7 @@ import Home from './components/Home/Home';
 import SetDisplay from './components/SetDisplay';
 import Written from './components/Written';
 import Learn from './components/Learn';
+import CopyArea from './components/CopyArea';
 function App() {
   return (
     <>
@@ -20,7 +21,9 @@ function App() {
           <Route path="/home/SetDisplay" element={<SetDisplay />}/>
           {/* <Route path="/home/SetDisplay/learn" element={<Learn />}/> */}
           <Route path="/home/SetDisplay/learn/written" element={<Written />}/>
+          <Route path="/home/SetDisplay/learn/copy" element={<CopyArea />}/>
           <Route path="/home/setDisplay/learn" element={<Learn />}/>
+
 
         </Routes>
       </BrowserRouter>
