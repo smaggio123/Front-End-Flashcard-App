@@ -5,7 +5,7 @@ import { useLocation,useNavigate } from 'react-router-dom';
 function Learn(){
     /*
     1. copy area
-    2. fill in the blanks
+    2. Matching
     2. writing
     3. test
     */
@@ -21,13 +21,16 @@ function Learn(){
     const goToWriting=()=>{
         navigate(`./written?data=${encodeURIComponent(selectedData)}`)
     }
+    const goToMatchingArea=()=>{
+        navigate(`./matching?data=${encodeURIComponent(selectedData)}`)
+    }
     return(
         <>
         <div id="learnContainingDiv">
 
             <h1 id="learnTitleHeading">Learn</h1>
             <button onClick={()=>goToCopyArea()}>Copy Area</button>
-            <button>Fill in the Blanks</button>
+            <button onClick={()=>goToMatchingArea()}>Matching</button>
             <button onClick={()=>goToWriting()}>Writing</button>
             <button>Test</button>
         </div>

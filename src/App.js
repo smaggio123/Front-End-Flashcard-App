@@ -9,6 +9,7 @@ import SetDisplay from './components/SetDisplay';
 import Written from './components/Written';
 import Learn from './components/Learn';
 import CopyArea from './components/CopyArea';
+import Matching from './components/Matching';
 function App() {
   return (
     <>
@@ -22,6 +23,7 @@ function App() {
           {/* <Route path="/home/SetDisplay/learn" element={<Learn />}/> */}
           <Route path="/home/SetDisplay/learn/written" element={<Written />}/>
           <Route path="/home/SetDisplay/learn/copy" element={<CopyArea />}/>
+          <Route path="/home/SetDisplay/learn/matching" element={<Matching />}/>
           <Route path="/home/setDisplay/learn" element={<Learn />}/>
 
 
