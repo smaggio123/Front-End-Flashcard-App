@@ -1,3 +1,15 @@
+#copyAreaBackButton {
+    position: fixed;
+    top: 20px; /* Adjust the value as per your preference */
+    left: 20px; /* Adjust the value as per your preference */
+    height:60px;
+    width: 70px;
+    background-color: transparent;
+    border:none;
+    font-size: x-large;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:white;
+  }
 #copyAreaContainingDiv{
     text-align: center;
     align-items: center;
@@ -13,7 +25,7 @@
 }
 #copyAreaContainingShownWords{
     text-align: left;
-    border: 1px solid white;
+    /* border: 1px solid white; */
     margin-left: 15%;
     height: 35vh;
     width: 65vw;
@@ -23,6 +35,21 @@
     font-size: large;
     margin-left: 20px;
     margin-right: 20px;
+    visibility: hidden;
+}
+#copyAreaTimerArea{
+    width: 40px;
+    height: 60px;
+    text-align: center;
+    justify-content: center;
+    border: 1px solid white;
+    position:absolute;
+    top:16vh;
+    left:85vw;
+}
+#copyAreaTimer{
+    color:white;
+    
 }
 #copyAreaInputArea{
     height: 20vh;
@@ -45,12 +72,12 @@
     margin: auto;
 }
 #copyAreaButtonArea{
-    margin-left: 37vw;
+    margin-left: 40vw;
     margin-top: 5vh;
     align-items: center;
     display: flex; /* Use flexbox layout */
     justify-content: space-between; /* Center the buttons horizontally */
-    width: 300px; /* Set a fixed width for the container */
+    width: 15vw; /* Set a fixed width for the container */
 }
 .copyAreaButton{
     border-radius: 50%;
