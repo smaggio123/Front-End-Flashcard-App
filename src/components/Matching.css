@@ -1,8 +1,41 @@
 #MatchingContainingDiv{
-    text-align: center;
     height:95vh;
     width:98vw;
 }
 #MatchingTitleHeader{
+    color: white;
+    text-align: center;
+}
+
+#MatchingColumnsArea{
+    display:flex;
+}
+
+.matchingUnselected{
+    border: 1px solid white;
+    margin-bottom: 10px;
+    padding: 10px;
+    color: white;
+}
+
+.matchingSelected{
+    border: 1px solid grey;
+    margin-bottom: 10px;
+    padding: 10px;
+    color: white;
+}
+.matchingMatchedPair{
+    border: 1px solid black;
+    margin-bottom: 10px;
+    padding: 10px;
+    color: grey;
+}
+
+
+.column {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 10px;
     color: white;
 }
