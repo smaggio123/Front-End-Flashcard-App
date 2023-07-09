@@ -21,9 +21,9 @@ function App() {
           <Route path="/signup" element={<Signup />}/>
           <Route path="/home/SetDisplay" element={<SetDisplay />}/>
           {/* <Route path="/home/SetDisplay/learn" element={<Learn />}/> */}
-          <Route path="/home/SetDisplay/learn/written" element={<Written />}/>
-          <Route path="/home/SetDisplay/learn/copy" element={<CopyArea />}/>
-          <Route path="/home/SetDisplay/learn/matching" element={<Matching />}/>
+          <Route path="/home/SetDisplay/written" element={<Written />}/>
+          <Route path="/home/SetDisplay/copy" element={<CopyArea />}/>
+          <Route path="/home/SetDisplay/matching" element={<Matching />}/>
           <Route path="/home/setDisplay/learn" element={<Learn />}/>
 
 

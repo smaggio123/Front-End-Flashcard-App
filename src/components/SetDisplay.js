@@ -20,6 +20,13 @@ function SetDisplay () {
         navigate(`/home/SetDisplay/learn?data=${encodeURIComponent(selectedData)}`)
     }
     const handleMatch = () =>{
+        navigate(`./matching?data=${encodeURIComponent(selectedData)}`)
+    }
+    const handleCopyArea = () =>{
+        navigate(`./copy?data=${encodeURIComponent(selectedData)}`)
+    }
+    const handleWrittenArea = () =>{
+        navigate(`./written?data=${encodeURIComponent(selectedData)}`)
     }
     const handleTest = () =>{
     }
@@ -64,10 +71,16 @@ function SetDisplay () {
             <h1 className='setDisplayHeader'>{selectedData}</h1>
             <div className="setDisplayButtonContainer">
                 {/* Learn, Test, Match, Edit */}
-                <div className="setDisplayButton" onClick={() => handleLearn()}><h3 className='setDisplayButtonText'>Learn</h3></div>
+
+                {/* <div className="setDisplayButton" onClick={() => handleLearn()}><h3 className='setDisplayButtonText'>Learn</h3></div>
                 <div className="setDisplayButton" onClick={() => handleMatch()}><h3 className='setDisplayButtonText'>Match</h3></div>
                 <div className="setDisplayButton" onClick={() => handleTest()}><h3 className='setDisplayButtonText'>Test</h3></div>
-                <div className="setDisplayButton" onClick={() => handleEdit()}><h3 className='setDisplayButtonText'>Edit</h3></div>
+                <div className="setDisplayButton" onClick={() => handleEdit()}><h3 className='setDisplayButtonText'>Edit</h3></div> */}
+                <button className='setDisplayOptionButton' onClick={() => handleCopyArea()}>Copy Area</button>
+                <button className='setDisplayOptionButton' onClick={() => handleMatch()}>Match</button>
+                <button className='setDisplayOptionButton' onClick={() => handleWrittenArea()}>Written</button>
+                <button className='setDisplayOptionButton' onClick={() => handleTest()}>Test</button>
+                <button className='setDisplayOptionButton' onClick={() => handleEdit()}>Edit</button>
             </div>
             <div className='setDisplayCardContainer'>
                 <button className='setDisplayCardButton' onClick={()=>handleLeft()}>Left Arrow</button>

@@ -14,6 +14,20 @@
     display:flex;
     /* justify-content: space-between; */
 }
+.setDisplayOptionButton{
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    height: 50px;
+    width: 125px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: large;
+    margin-right: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
 .setDisplayButton{
     margin-right: 50px;
     margin-top: 10px;
