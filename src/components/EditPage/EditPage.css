@@ -1,0 +1,12 @@
+
+#editPageContainingDiv{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+#editPageTitleHeading{
+    color: white;
+    font-size: 5vh;
+}

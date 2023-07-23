@@ -10,6 +10,7 @@ import Written from './components/Written';
 import Learn from './components/Learn';
 import CopyArea from './components/CopyArea';
 import Matching from './components/Matching';
+import EditPage from './components/EditPage/EditPage';
 function App() {
   return (
     <>
@@ -25,6 +26,7 @@ function App() {
           <Route path="/home/SetDisplay/copy" element={<CopyArea />}/>
           <Route path="/home/SetDisplay/matching" element={<Matching />}/>
           <Route path="/home/setDisplay/learn" element={<Learn />}/>
+          <Route path="/home/setDisplay/edit" element={<EditPage />}/>
 
 
         </Routes>

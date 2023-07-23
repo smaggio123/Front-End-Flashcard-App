@@ -1,0 +1,50 @@
+
+#editCardContainingDiv{
+    background-color: grey;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin: 0 50px;
+    border-radius: 10px;
+    /*
+    height: 10vh;
+    width: 50vw;
+    margin-left: 25vw;
+    padding-top: 3vh;
+    */
+}
+#EditCardInnerContainingDiv{
+    display: flex;
+    justify-Content: space-between;
+    background-Color: grey;
+    margin: 0 100px;
+    /*
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 25vw;
+    width: 50vw;
+    height: auto;
+    */
+}
+.editCardInput{
+    /*
+    padding: 5px;
+    outline: none;
+    font-size: 3vh;
+    overflow-y: hidden;
+    */
+    
+    border: none;
+    border-bottom: 1px solid white;
+    background-color: transparent;
+    color: white;
+    resize: none;
+    overflow: hidden;
+    width: 45%;
+    
+
+    /* flex: 1; Allow the inputs to take equal space */
+}
+
+.editCardInput:focus{
+  border-bottom: .5vh solid yellow; /* Change to desired color when focused or hovered */
+}

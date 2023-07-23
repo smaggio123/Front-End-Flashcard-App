@@ -31,6 +31,7 @@ function SetDisplay () {
     const handleTest = () =>{
     }
     const handleEdit = () =>{
+        navigate(`./edit?data=${encodeURIComponent(selectedData)}`)
     }
     
     const handleLeft = () =>{
