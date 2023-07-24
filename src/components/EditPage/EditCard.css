@@ -3,7 +3,7 @@
     background-color: grey;
     padding-top: 50px;
     padding-bottom: 50px;
-    margin: 0 50px;
+    margin: 10px 50px;
     border-radius: 10px;
     /*
     height: 10vh;
@@ -12,6 +12,21 @@
     padding-top: 3vh;
     */
 }
+
+#EditCardIndexHeader{
+    text-align: left;
+    height:1vh;
+    margin-left: 5vw;
+}
+
+#EditCardIndexDivider{
+    margin: 50px 50px;
+    height:2px;
+    border: none;
+    background-color: black;
+    color: black;
+}
+
 #EditCardInnerContainingDiv{
     display: flex;
     justify-Content: space-between;
@@ -40,6 +55,8 @@
     resize: none;
     overflow: hidden;
     width: 45%;
+    outline:none;
+
     
 
     /* flex: 1; Allow the inputs to take equal space */

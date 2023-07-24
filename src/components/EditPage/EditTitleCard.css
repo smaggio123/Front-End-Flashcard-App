@@ -1,0 +1,43 @@
+#EditTitleCardContainer{
+    height: 16vh;
+    width: 99vw;
+}
+
+#EditTitleCardTitleHeaderContainer{
+    height: 15vh;
+    /* width: 30vw; */
+    /* margin: auto; */
+    margin: 0 70px;
+    border-radius: 10px;
+    border: 1px solid white;
+    
+}
+
+#EditTitleCardTitleHeader{
+    text-align: left;
+    margin-left: 1vw;
+    color: white;
+}
+
+#EditTitleCardDivider{
+    margin: 20px;
+}
+
+#EditTitleCardInput{
+    border: none;
+    border-bottom: 1px solid white;
+    background-color: transparent;
+    color: white;
+    resize: none;
+    overflow: hidden;
+    width: 90%;
+    outline:none;
+}
+
+#EditTitleCardInput:focus{
+    border-bottom: .5vh solid yellow; /* Change to desired color when focused or hovered */
+}
+
+#EditTitleCardInput::placeholder{
+    color: rgb(190, 190, 190);
+}
