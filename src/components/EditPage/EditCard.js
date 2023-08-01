@@ -2,14 +2,25 @@ import React, { useState } from 'react'
 import "./EditCard.css";
 import { useLocation,useNavigate } from 'react-router-dom';
 
-function EditCard ({ word1, word2, pairIndex }) {
-  const [textarea1Content, setTextarea1Content] = useState(word1);
-  const [textarea2Content, setTextarea2Content] = useState(word2);
+
+function EditCard ({ term, definition, GL, SL, pairIndex }) {
+  const [textarea1Content, setTextarea1Content] = useState(term);
+  const [textarea2Content, setTextarea2Content] = useState(definition);
+  const [getList,setList] = useState(GL);
   const [indexOfPair, setIndexOfPair] = useState(pairIndex);
 
   const handleTextareaChange = (event, setter) => {
     const { value } = event.target;
     setter(value);
+    let tempList = getList;
+    if(event.target.id==="editCardTermInput"){
+      tempList[pairIndex][0]=value;
+      setList(tempList)
+    }
+    else{
+      tempList[pairIndex][1]=value;
+      setList(tempList)
+    }
   };
 
   const handleTextareaResize = (event) => {
@@ -22,7 +33,7 @@ function EditCard ({ word1, word2, pairIndex }) {
 
   return (
     <div id='editCardContainingDiv' >
-      <h2 id='EditCardIndexHeader'>{pairIndex}</h2>
+      <h2 id='EditCardIndexHeader'>{indexOfPair+1}</h2>
       <hr id='EditCardIndexDivider'/>
       <div id="EditCardInnerContainingDiv" >
       <textarea
@@ -30,6 +41,7 @@ function EditCard ({ word1, word2, pairIndex }) {
           onChange={(e) => handleTextareaChange(e, setTextarea1Content)}
           onInput={handleTextareaResize}
           className='editCardInput'
+          id='editCardTermInput'
           rows={1}
           />
       <textarea
@@ -37,6 +49,7 @@ function EditCard ({ word1, word2, pairIndex }) {
           onChange={(e) => handleTextareaChange(e, setTextarea2Content)}
           onInput={handleTextareaResize}
           className='editCardInput'
+          id='editCardDefInput'
           rows={1}
           />
       </div>

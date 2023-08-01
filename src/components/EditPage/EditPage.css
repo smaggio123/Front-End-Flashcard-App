@@ -10,3 +10,16 @@
     color: white;
     font-size: 5vh;
 }
+
+#EditPageSaveBtn{
+    position: fixed;
+    height: 5%;
+    width: 5%;
+    bottom:5%;
+    right:10%;
+    background-color: darkblue;
+    outline: none;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+}

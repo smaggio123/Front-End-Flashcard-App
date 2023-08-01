@@ -1,13 +1,12 @@
 #EditTitleCardContainer{
     height: 16vh;
-    width: 99vw;
+    width: 98vw;
+
 }
 
 #EditTitleCardTitleHeaderContainer{
     height: 15vh;
-    /* width: 30vw; */
-    /* margin: auto; */
-    margin: 0 70px;
+    margin: 0 20%;
     border-radius: 10px;
     border: 1px solid white;
     

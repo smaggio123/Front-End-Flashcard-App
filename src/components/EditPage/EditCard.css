@@ -1,53 +1,34 @@
 
 #editCardContainingDiv{
-    background-color: grey;
-    padding-top: 50px;
     padding-bottom: 50px;
-    margin: 10px 50px;
+    margin: 10px 20%;
     border-radius: 10px;
-    /*
-    height: 10vh;
-    width: 50vw;
-    margin-left: 25vw;
-    padding-top: 3vh;
-    */
+    border: 1px solid white;
 }
 
 #EditCardIndexHeader{
+    padding-top: 1%;
     text-align: left;
-    height:1vh;
-    margin-left: 5vw;
+    height:2vh;
+    margin-left: 3vw;
+    color: white;
 }
 
 #EditCardIndexDivider{
-    margin: 50px 50px;
+    margin-bottom: 3%;
     height:2px;
     border: none;
-    background-color: black;
-    color: black;
+    background-color: grey;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 #EditCardInnerContainingDiv{
     display: flex;
     justify-Content: space-between;
-    background-Color: grey;
     margin: 0 100px;
-    /*
-    display: flex;
-    justify-content: space-evenly;
-    margin-left: 25vw;
-    width: 50vw;
-    height: auto;
-    */
 }
 .editCardInput{
-    /*
-    padding: 5px;
-    outline: none;
-    font-size: 3vh;
-    overflow-y: hidden;
-    */
-    
     border: none;
     border-bottom: 1px solid white;
     background-color: transparent;
@@ -56,10 +37,6 @@
     overflow: hidden;
     width: 45%;
     outline:none;
-
-    
-
-    /* flex: 1; Allow the inputs to take equal space */
 }
 
 .editCardInput:focus{
