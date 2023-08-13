@@ -1,5 +1,5 @@
 import "./Matching.css";
-import { React,useState,useEffect, Component } from 'react';
+import { React,useState,Component } from 'react';
 import { useLocation,useNavigate } from 'react-router-dom';
 
 class MatchingClass extends Component{

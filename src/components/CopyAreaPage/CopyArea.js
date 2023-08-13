@@ -1,6 +1,6 @@
+import LearnBtn from "../LearnBtn";
 import "./CopyArea.css";
 import { React,useState, useEffect } from 'react';
-import { useLocation,useNavigate } from 'react-router-dom';
 
 function CopyArea(){
     const setList=[
@@ -17,19 +17,7 @@ function CopyArea(){
     const [writtenInput, setWrittenInput] = useState("");
     const [copyAreaBorderColorWhite, setCopyAreaBorderColorWhite] = useState(true);
     const [timer, setTimer] = useState(5);
-
-    let navigate = useNavigate();
-    const location = useLocation();
-    const searchParams = new URLSearchParams(location.search);
-    const selectedData = searchParams.get('data');
-
-    //Sends user back to learn page
-    const handleBackTolearn = () =>{
-        const { pathname } = location;
-        const newUrl = `${pathname.substring(0, pathname.lastIndexOf('/'))}?data=${encodeURIComponent(selectedData)}`;
-        navigate(newUrl)
-    }
-
+    
     useEffect(() => {
         if(writtenInput===currentDef){
             setShowDefinition(true);
@@ -103,7 +91,7 @@ function CopyArea(){
 
     return(
         <>
-        <button id="copyAreaBackButton" onClick={()=>handleBackTolearn()}>Learn</button>
+        <LearnBtn/>
         <div id="copyAreaContainingDiv">
             <h1 id="copyAreaTitleHeader">Copy Area</h1>
             <h2 id="copyAreaCurrentTerm">{currentTerm}</h2>

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import "./EditPage.css";
-import { useLocation,useNavigate } from 'react-router-dom';
 import EditCard from './EditCard';
 import EditTitleCard from './EditTitleCard';
+import LearnBtn from '../LearnBtn';
 function EditPage () {
     const [getList,setList] =useState([["word1","def1"],["word2","def2"],["word3","def3"],["word4","def4"],["word5","def5"]]);
 
@@ -13,6 +13,7 @@ function EditPage () {
 
     return(
         <>
+        <LearnBtn/>
             <div id='editPageContainingDiv'>
                 <h1 id='editPageTitleHeading'>Edit</h1>
                 <EditTitleCard/>

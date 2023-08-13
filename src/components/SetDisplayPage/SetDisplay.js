@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./SetDisplay.css";
 import { useLocation,useNavigate } from 'react-router-dom';
-
+import HomeBtn from '../HomeBtn';
 
 function SetDisplay () {
     let navigate = useNavigate();
@@ -68,6 +68,7 @@ function SetDisplay () {
     
     return (
     <>
+    <HomeBtn/>
         <div className='setDisplayContainer'>
             <h1 className='setDisplayHeader'>{selectedData}</h1>
             <div className="setDisplayButtonContainer">

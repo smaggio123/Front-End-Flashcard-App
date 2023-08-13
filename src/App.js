@@ -1,16 +1,14 @@
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import './App.css';
-import Login from '../src/components/Login.js'
-import Signup from './components/Signup';
+import Login from './components/LoginPage/Login';
+import Signup from './components/SignupPage/Signup';
 import Home from './components/Home/Home';
-
-
-import SetDisplay from './components/SetDisplay';
-import Written from './components/Written';
-import Learn from './components/Learn';
-import CopyArea from './components/CopyArea';
-import Matching from './components/Matching';
+import SetDisplay from './components/SetDisplayPage/SetDisplay';
+import Written from './components/WrittenPage/Written';
+import CopyArea from './components/CopyAreaPage/CopyArea';
+import Matching from './components/MatchingPage/Matching';
 import EditPage from './components/EditPage/EditPage';
+import Learn from './components/LearnPage/Learn';
 function App() {
   return (
     <>
@@ -18,14 +16,13 @@ function App() {
         <Routes>
           <Route path="/" element={<h1>root</h1>}/>
           <Route path="/home" element={<Home/>}/>
-          <Route path="/login" element={<Login />}/>
-          <Route path="/signup" element={<Signup />}/>
-          <Route path="/home/SetDisplay" element={<SetDisplay />}/>
-          {/* <Route path="/home/SetDisplay/learn" element={<Learn />}/> */}
-          <Route path="/home/SetDisplay/written" element={<Written />}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/signup" element={<Signup/>}/>
+          <Route path="/home/SetDisplay" element={<SetDisplay/>}/>
+          <Route path="/home/SetDisplay/written" element={<Written/>}/>
           <Route path="/home/SetDisplay/copy" element={<CopyArea />}/>
-          <Route path="/home/SetDisplay/matching" element={<Matching />}/>
-          <Route path="/home/setDisplay/learn" element={<Learn />}/>
+          <Route path="/home/SetDisplay/matching" element={<Matching/>}/>
+          <Route path="/home/setDisplay/learn" element={<Learn/>}/>
           <Route path="/home/setDisplay/edit" element={<EditPage />}/>
 
 
