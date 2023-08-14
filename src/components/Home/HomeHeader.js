@@ -6,8 +6,8 @@ function HomeHeader() {
   return (
     <>   
         <div id='homeHeader'>
-            <input type="text" class="search-input" placeholder="Search..."/>
-            <button class="search-button"><img id='homeSearchImage' src={photo} alt="S"/></button>
+            <input type="text" className="search-input" placeholder="Search..."/>
+            <button className="search-button"><img id='homeSearchImage' src={photo} alt="S"/></button>
         </div>
     </>
   )

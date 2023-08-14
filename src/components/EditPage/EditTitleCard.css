@@ -1,15 +1,16 @@
 #EditTitleCardContainer{
-    height: 16vh;
+    height: 20vh;
     width: 98vw;
 
 }
 
 #EditTitleCardTitleHeaderContainer{
-    height: 15vh;
+    height: 17vh;
     margin: 0 20%;
+    /* margin: 0 40vh; */
     border-radius: 10px;
     border: 1px solid white;
-    
+    font-size: 2vh;
 }
 
 #EditTitleCardTitleHeader{
@@ -19,7 +20,8 @@
 }
 
 #EditTitleCardDivider{
-    margin: 20px;
+    /* margin: 20px; */
+    margin: 1vh;
 }
 
 #EditTitleCardInput{
@@ -31,6 +33,8 @@
     overflow: hidden;
     width: 90%;
     outline:none;
+    padding-top: 10px;
+    font-size: 2vh;
 }
 
 #EditTitleCardInput:focus{

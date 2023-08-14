@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import "./EditCard.css";
-import { useLocation,useNavigate } from 'react-router-dom';
 
 
 function EditCard ({ term, definition, GL, SL, pairIndex }) {
   const [textarea1Content, setTextarea1Content] = useState(term);
   const [textarea2Content, setTextarea2Content] = useState(definition);
   const [getList,setList] = useState(GL);
-  const [indexOfPair, setIndexOfPair] = useState(pairIndex);
 
   const handleTextareaChange = (event, setter) => {
     const { value } = event.target;
@@ -33,7 +31,7 @@ function EditCard ({ term, definition, GL, SL, pairIndex }) {
 
   return (
     <div id='editCardContainingDiv' >
-      <h2 id='EditCardIndexHeader'>{indexOfPair+1}</h2>
+      <h2 id='EditCardIndexHeader'>{pairIndex+1}</h2>
       <hr id='EditCardIndexDivider'/>
       <div id="EditCardInnerContainingDiv" >
       <textarea

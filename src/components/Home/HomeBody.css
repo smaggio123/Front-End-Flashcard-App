@@ -14,6 +14,7 @@ tr{
     margin-bottom: 60px;
 }
 .homeBodyTd{
+    position: relative;
     height: 20px;
     width:100%;
 }
@@ -35,8 +36,23 @@ tr{
 .item{
     flex-basis: 50%;
     box-sizing: border-box;
-    /* padding: 10px; */
 }
 thead{
     text-align: center;
+}
+
+#homeBodyMenuBtn{
+    color: white;
+    border: 1px solid white;
+    background-color: transparent;
+    position: absolute;
+    right: 10px;
+    visibility: hidden;
+    
+}
+.homeBodyTr:hover #PopupMenuContainer{
+    visibility: visible;
+}
+.homeBodyTr:hover #homeBodyMenuBtn  {
+    visibility: visible;
 }

@@ -1,0 +1,21 @@
+#PopupMenuContainer{
+    position: absolute;
+    background-color: grey;
+    width: 8vw;
+    right: 25px;
+    border-radius: 10px;
+    visibility: hidden;
+}
+
+.PopupMenuBtn{
+    color: white;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-size: 1.1vw;
+    width: 100%;
+}
+
+.PopupMenuDivider{
+    margin: 1px;
+}

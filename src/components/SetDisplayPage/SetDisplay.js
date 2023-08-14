@@ -73,11 +73,6 @@ function SetDisplay () {
             <h1 className='setDisplayHeader'>{selectedData}</h1>
             <div className="setDisplayButtonContainer">
                 {/* Learn, Test, Match, Edit */}
-
-                {/* <div className="setDisplayButton" onClick={() => handleLearn()}><h3 className='setDisplayButtonText'>Learn</h3></div>
-                <div className="setDisplayButton" onClick={() => handleMatch()}><h3 className='setDisplayButtonText'>Match</h3></div>
-                <div className="setDisplayButton" onClick={() => handleTest()}><h3 className='setDisplayButtonText'>Test</h3></div>
-                <div className="setDisplayButton" onClick={() => handleEdit()}><h3 className='setDisplayButtonText'>Edit</h3></div> */}
                 <button className='setDisplayOptionButton' onClick={() => handleCopyArea()}>Copy Area</button>
                 <button className='setDisplayOptionButton' onClick={() => handleMatch()}>Match</button>
                 <button className='setDisplayOptionButton' onClick={() => handleWrittenArea()}>Written</button>
@@ -85,13 +80,13 @@ function SetDisplay () {
                 <button className='setDisplayOptionButton' onClick={() => handleEdit()}>Edit</button>
             </div>
             <div className='setDisplayCardContainer'>
-                <button className='setDisplayCardButton' onClick={()=>handleLeft()}>Left Arrow</button>
+                <button className='setDisplayCardButton' onClick={()=>handleLeft()}><i className="fa-solid fa-arrow-left"></i></button>
                 <div className='setDisplayCard' onClick={() => flipCard()}>
                     <h3 className='setDisplayCardWord'>
                         {cardWord}
                     </h3>
                 </div>
-                <button className='setDisplayCardButton' onClick={()=>handleRight()}>Right Arrow</button>
+                <button className='setDisplayCardButton' onClick={()=>handleRight()}><i className="fa-solid fa-arrow-right"></i></button>
             </div>
             <div>
             {setList.map((item, index) => (
