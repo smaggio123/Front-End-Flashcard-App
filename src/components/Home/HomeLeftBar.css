@@ -5,6 +5,7 @@
     height: 100vh;
 }
 td {
+    position: relative;
     border: 1px solid;
   }
 #homeLeftBarTable{
@@ -17,16 +18,18 @@ td {
     background-color: grey;
 }
 
-.button-container {
-    display: flex;
-    justify-content: space-between;
-    margin-left: 10px;
-    margin-right: 10px;
+  #HomeLeftBarMenuBtn{
+    color: black;
+    border: 1px solid black;
+    background-color: transparent;
+    position: absolute;
+    right: 10px;
+    visibility: hidden;
   }
   
-  .button {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width:50px;
-    margin-right: 10px;
-  }
+  .homeLeftBarTr:hover #FolderPopupMenuContainer{
+    visibility: visible;
+}
+.homeLeftBarTr:hover #HomeLeftBarMenuBtn  {
+    visibility: visible;
+}

@@ -1,0 +1,21 @@
+#FolderPopupMenuContainer{
+    position: absolute;
+    background-color: grey;
+    width: 8vw;
+    left: 20.5%;
+    border-radius: 10px;
+    visibility: hidden;
+}
+
+.FolderPopupMenuBtn{
+    color: black;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-size: 1.1vw;
+    width: 100%;
+}
+
+.FolderPopupMenuDivider{
+    margin: 1px;
+}

@@ -1,46 +1,59 @@
 import React, { useState } from 'react'
 import './HomeLeftBar.css'
+import FolderPopupMenu from './FolderPopupMenu';
 
 function HomeLeftBar() {
     const [selectedFolder, setSelectedFolder] = useState(null);
-    const [folderList, setFolderList] = useState([]);
-    const data = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
-    const handleFolderClick = (folder) => {
-        setSelectedFolder(folder);
-        // alert("clicked on "+folder);
+    const [showMyPopUpMenu, setShowMyPopUpMenu] = useState(true);
+    const [currentPopupMenuIndex,setCurrentPopupMenuIndex] = useState(-1);
+    const [folderList, setFolderList] = useState(['Item 1', 'Item 2', 'Item 3', 'Item 4']);
+    const handleFolderClick = (folderIndex) => {
+        setSelectedFolder(folderIndex);
       };
-
-      const handleAdd = () =>{
-        alert("Add folder")
-    }
-    const handleEdit = () =>{
-          alert("Edit folder")
+    const handleAddClicked = () =>{
+        let tempList = folderList;
+        let userInputName = prompt("Add folder");
+        if(userInputName!=null){
+            setShowMyPopUpMenu(false)
+            //Backend operation
+            
+            //Frontend operation
+            tempList.push(userInputName);
+            setFolderList(tempList);
+            setSelectedFolder(folderList.length-1)
         }
-        const handleDelete = () =>{
-            const result = window.confirm('Do you want to proceed?');
-            if (result) {
-                alert("clicked yes")
-            } else {
-                alert('clicked no')
-            }
+    }
+    
+      const popupClicked = (i) =>{
+        if(i!==currentPopupMenuIndex){
+            setCurrentPopupMenuIndex(i)
+            setShowMyPopUpMenu(true);
+        }
+        else{
+            setShowMyPopUpMenu(!showMyPopUpMenu);
+        }
       }
     
       return (
           <>
             <div className="sidebar">
-            <div className="button-container">
-                <button className="button" onClick={() => handleAdd()}>Add</button>
-                <button className="button" onClick={() => handleEdit()}>Edit</button>
-                <button className="button" onClick={() => handleDelete()}>Delete</button>
-            </div>
                 {/* Left side div */}
                 <div className="left-sidebar">
                 <table id='homeLeftBarTable'>
-                        {data.map((item, index) => (
-                        <tr>
-                            <td className={`homeLeftBarTd ${selectedFolder===item ? 'clicked' : ''}`} key={index}  onClick={() => handleFolderClick(item)}>{item}</td>
+                    {folderList.map((item, index) => (
+                        <tr key={index} className='homeLeftBarTr'>
+                            <td className={`homeLeftBarTd ${selectedFolder===index ? 'clicked' : ''}`} key={index} onClick={() => handleFolderClick(index)}>{folderList[index]}
+                            <button id="HomeLeftBarMenuBtn" onClick={()=>popupClicked(index)}>...</button>
+                            </td>
+
+                            {showMyPopUpMenu&&currentPopupMenuIndex===index?(
+                                    <FolderPopupMenu list={folderList} setList={setFolderList} index={currentPopupMenuIndex} setShowMyPopUpMenu={setShowMyPopUpMenu}/>
+                                ):<></>}
                         </tr>
-                            ))}
+                    ))}
+                    <tr>
+                        <td className='homeLeftBarTd' onClick={()=>handleAddClicked()}>+</td>
+                    </tr>
                 </table>
                 </div>
             </div>

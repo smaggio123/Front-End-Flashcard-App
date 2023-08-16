@@ -98,11 +98,9 @@ function CopyArea(){
             <div id="copyAreaContainingShownWords" style={{border: copyAreaBorderColorWhite? "1px solid white": "1px solid green"}}>
                 <p id="copyAreaShowingDef" style={{visibility: showDefinition? "visible":"hidden"}}>{currentDef}</p>
                 <div id="copyAreaTimerArea"><h2 id="copyAreaTimer">{timer}</h2></div>
-                {/* <h2 id={hintVisible?"writtenHintShown":"writtenHintHidden"}>{answerWithDefinition?currentDef:currentTerm}</h2> */}
             </div>
             <div id="copyAreaInputArea">
                 <textarea id="copyAreaInput" value={writtenInput} onChange={(e)=>copyAreaHandleTextInput(e.target.value)}></textarea>
-                {/* <input id="copyAreaInput" type="text" placeholder="typing hides definition"></input> */}
             </div>
             <div id="copyAreaDivForCentering">
                 <div id="copyAreaButtonArea">
