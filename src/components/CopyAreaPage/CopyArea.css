@@ -37,7 +37,22 @@
     margin-right: 20px;
     visibility: hidden;
 }
-#copyAreaTimerArea{
+
+/* #copyAreaTimerArea{
+    width: 40px;
+    height: 60px;
+    text-align: center;
+    justify-content: center;
+    border: 1px solid white;f
+    position:absolute;
+    top:16vh;
+    left:85vw;
+}
+#copyAreaTimer{
+    color:white;
+} */
+
+#CopyAreaTimerContainer{
     width: 40px;
     height: 60px;
     text-align: center;
@@ -47,10 +62,10 @@
     top:16vh;
     left:85vw;
 }
-#copyAreaTimer{
+#CopyAreaTimerContainingDiv{
     color:white;
-    
 }
+
 #copyAreaInputArea{
     height: 15vh;
     width: 65vw;
