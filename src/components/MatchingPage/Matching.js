@@ -6,46 +6,60 @@ class MatchingClass extends Component{
     constructor(props){
         super(props);
         this.state = {
-            termsList:[
+            initialTermList:[
                 ["term1",0],
                 ["term2",1],
                 ["term3",2],
                 ["term4",3],
                 ["term5",4],
+                ["term6",5],
+                ["term7",6],
+                ["term8",7],
+                ["term9",8],
             ],
-            defList:[
+            initialdefsList:[
                 ["def1",0],
                 ["def2",1],
                 ["def3",2],
                 ["def4",3],
                 ["def5",4],
+                ["def6",5],
+                ["def7",6],
+                ["def8",7],
+                ["def9",8],
             ],
+            termsList:[],
+            defsList:[],
         }
     }
+    initializeArrays(){
+        this.setState({termsList: this.state.initialTermList.slice(0,this.props.numberOfPairs)})
+        //DefsList is initialized in the shuffle method
+        this.shuffleArray()
+    }
     componentDidMount() {
-        this.shuffleArray();
-        window.addEventListener('beforeunload', this.shuffleArray);
-      }
+        this.initializeArrays();
+        window.addEventListener('beforeunload', this.initializeArrays);
+    }
     
-      componentWillUnmount() {
-        window.removeEventListener('beforeunload', this.shuffleArray);
-      }
+    componentWillUnmount() {
+        this.initializeArrays()
+        window.removeEventListener('beforeunload', this.initializeArrays);
+    }
     shuffleArray() {
-
-        const shuffledDef = [...this.state.defList];
+        const shuffledDef = this.state.initialdefsList.slice(0,this.props.numberOfPairs)
         for (let i = shuffledDef.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [shuffledDef[i], shuffledDef[j]] = [shuffledDef[j], shuffledDef[i]];
         }
-        this.setState({ defList: shuffledDef });
+        this.setState({ defsList: shuffledDef });
     }
     render(){
-        const {isMatchedArrayTerm,setIsMatchedArrayTerm,isMatchedArrayDef,setIsMatchedArrayDef,termSelectedArray,setTermSelectedArray,defSelectedArray,setDefSelectedArray,currentTermSelected,setCurrentTermSelected,currentDefSelected,setCurrentDefSelected} = this.props;
-        
+        const {isMatchedArrayTerm,setIsMatchedArrayTerm,isMatchedArrayDef,setIsMatchedArrayDef,termSelectedArray,setTermSelectedArray,defSelectedArray,setDefSelectedArray,currentTermSelected,setCurrentTermSelected,currentDefSelected,setCurrentDefSelected,numberOfPairs} = this.props;
         
         const unselectPair=()=>{
-            setTermSelectedArray(Array.from({ length: this.state.termsList.length }).fill(false));
-            setDefSelectedArray(Array.from({ length: this.state.termsList.length }).fill(false));
+            setTermSelectedArray(Array.from({ length: this.state.termsList }).fill(false));
+            setDefSelectedArray(Array.from({ length: this.state.termsList }).fill(false));
             setCurrentTermSelected(-1);
             setCurrentDefSelected(-1);
         }
@@ -80,43 +94,75 @@ class MatchingClass extends Component{
             unselectPair();
         }
     
+        const listChoices={
+            listOfTerms:0,
+            listOfDefs:1,
+        }
+        const updateSelectionShown=(arrayIndex,newSelectState=true,listChoice)=>{
+            //Resets array to deselect previous definition
+            //Both lists should be equal length. If they are not, update this method to account for either list
+            let tempSelectedArray = Array.from({ length: this.state.termsList }).fill(false);
+            //Sets current definition
+            tempSelectedArray[arrayIndex] = newSelectState;
+            if(listChoice===listChoices.listOfTerms){
+                setTermSelectedArray(tempSelectedArray);
+                if(newSelectState){
+                    setCurrentTermSelected(arrayIndex);
+                    if(currentDefSelected!==-1){
+                        setCurrentDefSelected(-1);
+                        setDefSelectedArray(Array.from({ length: this.state.defsList }).fill(false))
+                    }
+                }
+                else{
+                    setCurrentTermSelected(-1);
+                }
+            }
+            else{
+                setDefSelectedArray(tempSelectedArray);
+                if(newSelectState){
+                    setCurrentDefSelected(arrayIndex);
+                    if(currentTermSelected!==-1){
+                        setCurrentTermSelected(-1);
+                        setTermSelectedArray(Array.from({ length: this.state.termList }).fill(false))
+                    }
+                }
+                else{
+                    setCurrentDefSelected(-1);
+                    
+                }
+            }
+
+        }
+
         const handleTermClick=(arrayIndex)=>{
             if(isMatchedArrayTerm[arrayIndex])return;
-            if(currentDefSelected!==-1&&this.state.termsList[arrayIndex][1]===this.state.defList[currentDefSelected][1]){
+            if(currentDefSelected!==-1&&this.state.termsList[arrayIndex][1]===this.state.defsList[currentDefSelected][1]){
                 handleMatchedOnTerm(arrayIndex);
             }
             else if(!isMatchedArrayTerm[arrayIndex]){
-                //True if term was already selected
-                let alreadySelected = currentTermSelected===arrayIndex;
-                //Resets array to deselect previous term
-                let tempSelectedArray = Array.from({ length: this.state.termsList.length }).fill(false);
-                //Sets current term
-                tempSelectedArray[arrayIndex] = !alreadySelected;
-                setTermSelectedArray(tempSelectedArray);
-                //If term already selected, it will be deselected
-                if(alreadySelected)setCurrentTermSelected(-1);
-                else setCurrentTermSelected(arrayIndex);
+                updateSelectionShown(arrayIndex,currentTermSelected!==arrayIndex,listChoices.listOfTerms);
             }
         }
-        
+
         const handleDefClick=(arrayIndex)=>{
             if(isMatchedArrayDef[arrayIndex])return;
-            if(currentTermSelected!==-1&&this.state.defList[arrayIndex][1]===this.state.termsList[currentTermSelected][1]){
+            if(currentTermSelected!==-1&&this.state.defsList[arrayIndex][1]===this.state.termsList[currentTermSelected][1]){
                 handleMatchedOnDef(arrayIndex);
             }
             else if(!isMatchedArrayDef[arrayIndex]){
-                //True if definition was already selected
-                let alreadySelected = currentDefSelected===arrayIndex;
-                //Resets array to deselect previous definition
-                let tempSelectedArray = Array.from({ length: this.state.termsList.length }).fill(false);
-                //Sets current definition
-                tempSelectedArray[arrayIndex] = !alreadySelected;
-                setDefSelectedArray(tempSelectedArray);
-                //If definition already selected, it will be deselected
-                if(alreadySelected)setCurrentDefSelected(-1);
-                else setCurrentDefSelected(arrayIndex);
+                updateSelectionShown(arrayIndex,currentDefSelected!==arrayIndex,listChoices.listOfDefs);
             }
         }
+        const resetMatching = () =>{
+            setIsMatchedArrayTerm(Array.from({ length: isMatchedArrayTerm }).fill(false))
+            setIsMatchedArrayDef(Array.from({ length: isMatchedArrayDef }).fill(false))
+            setTermSelectedArray(Array.from({ length: termSelectedArray }).fill(false))
+            setDefSelectedArray(Array.from({ length: defSelectedArray }).fill(false))
+            setCurrentTermSelected(-1);
+            setCurrentDefSelected(-1);
+            this.shuffleArray();
+        }
+
         const getMatchingTermClassName=(index)=>{
             if(isMatchedArrayTerm[index]){
                 return "matchingMatchedPair";
@@ -141,6 +187,7 @@ class MatchingClass extends Component{
         }
         return(
             <>
+                <button id="MatchingResetBtn" onClick={()=>resetMatching()}><i className="fa-solid fa-arrows-rotate"></i></button>
                 <div className="column">
                     {this.state.termsList.map((term, index) => (
                         <div
@@ -153,7 +200,7 @@ class MatchingClass extends Component{
                     ))}
                 </div>
                 <div className="column">
-                    {this.state.defList.map((def, index) => (
+                    {this.state.defsList.map((def, index) => (
                         <div
                         key={index}
                         className={getMatchingDefClassName(index)}
@@ -196,7 +243,7 @@ function Matching(){
             <div id="MatchingContainingDiv">
                 <h1 id="MatchingTitleHeader">Matching</h1>
                 <div id="MatchingColumnsArea">
-                    <MatchingClass isMatchedArrayTerm={isMatchedArrayTerm} isMatchedArrayDef={isMatchedArrayDef} setIsMatchedArrayTerm={setIsMatchedArrayTerm} setIsMatchedArrayDef={setIsMatchedArrayDef} termSelectedArray={termSelectedArray} setTermSelectedArray={setTermSelectedArray} defSelectedArray={defSelectedArray} setDefSelectedArray={setDefSelectedArray} currentTermSelected={currentTermSelected} setCurrentTermSelected={setCurrentTermSelected} currentDefSelected={currentDefSelected} setCurrentDefSelected={setCurrentDefSelected}/>
+                    <MatchingClass isMatchedArrayTerm={isMatchedArrayTerm} isMatchedArrayDef={isMatchedArrayDef} setIsMatchedArrayTerm={setIsMatchedArrayTerm} setIsMatchedArrayDef={setIsMatchedArrayDef} termSelectedArray={termSelectedArray} setTermSelectedArray={setTermSelectedArray} defSelectedArray={defSelectedArray} setDefSelectedArray={setDefSelectedArray} currentTermSelected={currentTermSelected} setCurrentTermSelected={setCurrentTermSelected} currentDefSelected={currentDefSelected} setCurrentDefSelected={setCurrentDefSelected} numberOfPairs={numberOfPairs}/>
                 </div>
             </div>
         </>

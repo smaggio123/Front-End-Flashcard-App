@@ -50,3 +50,9 @@
     padding: 10px;
     color: white;
 }
+
+#MatchingResetBtn{
+    position: absolute;
+    right: 5vw;
+    top: 5vh;
+}
