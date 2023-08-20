@@ -17,7 +17,7 @@ class MatchingClass extends Component{
                 ["term8",7],
                 ["term9",8],
             ],
-            initialdefsList:[
+            initialDefsList:[
                 ["def1",0],
                 ["def2",1],
                 ["def3",2],
@@ -28,32 +28,60 @@ class MatchingClass extends Component{
                 ["def8",7],
                 ["def9",8],
             ],
+            shuffledTermsList:[],
+            shuffledDefsList:[],
             termsList:[],
             defsList:[],
+            startIndex:0,
         }
     }
-    initializeArrays(){
-        this.setState({termsList: this.state.initialTermList.slice(0,this.props.numberOfPairs)})
-        //DefsList is initialized in the shuffle method
-        this.shuffleArray()
-    }
     componentDidMount() {
-        this.initializeArrays();
-        window.addEventListener('beforeunload', this.initializeArrays);
+        this.initializeEverything();
+        window.addEventListener('beforeunload', this.initializeEverything);
     }
     
     componentWillUnmount() {
-        this.initializeArrays()
-        window.removeEventListener('beforeunload', this.initializeArrays);
+        this.initializeEverything()
+        window.removeEventListener('beforeunload', this.initializeEverything);
     }
-    shuffleArray() {
-        const shuffledDef = this.state.initialdefsList.slice(0,this.props.numberOfPairs)
-        for (let i = shuffledDef.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [shuffledDef[i], shuffledDef[j]] = [shuffledDef[j], shuffledDef[i]];
+    
+    
+    initializeEverything(){
+        //Shuffle big array
+        let tempSortedArr = this.shuffle2ArraysInSync(this.state.initialTermList,this.state.initialDefsList)
+        this.setState({shuffledTermsList: tempSortedArr[0], shuffledDefsList: tempSortedArr[1]})
+        //create shown array
+        this.spawnShownArray(tempSortedArr,this.state.startIndex);
+    }
+    
+    spawnShownArray(bigShuffledArr,actualStartIndex){
+        this.setState({startIndex:actualStartIndex})
+        let tempTermList = [];
+        let tempDefList = [];
+        for(let i = 0;i<bigShuffledArr[0].length&&i<this.props.numberOfPairs;i++){
+            tempTermList[i] = bigShuffledArr[0][(i+actualStartIndex)%bigShuffledArr[0].length]
+            tempDefList[i] = bigShuffledArr[1][(i+actualStartIndex)%bigShuffledArr[1].length]
         }
-        this.setState({ defsList: shuffledDef });
+        this.setState({termsList: tempTermList,defsList: tempDefList});
+        this.setState({termsList: this.shuffleArray(tempTermList), defsList: this.shuffleArray(tempDefList)})
     }
+    
+    shuffleArray(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr
+    }
+    shuffle2ArraysInSync(arr1,arr2) {
+        for (let i = arr1.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr1[i], arr1[j]] = [arr1[j], arr1[i]];
+            [arr2[i], arr2[j]] = [arr2[j], arr2[i]];
+        }
+        return [arr1,arr2]
+    }
+
     render(){
         const {isMatchedArrayTerm,setIsMatchedArrayTerm,isMatchedArrayDef,setIsMatchedArrayDef,termSelectedArray,setTermSelectedArray,defSelectedArray,setDefSelectedArray,currentTermSelected,setCurrentTermSelected,currentDefSelected,setCurrentDefSelected,numberOfPairs} = this.props;
         
@@ -154,13 +182,22 @@ class MatchingClass extends Component{
             }
         }
         const resetMatching = () =>{
+            unsetAttributes();
+            this.initializeEverything();
+        }
+        const unsetAttributes = ()=>{
             setIsMatchedArrayTerm(Array.from({ length: isMatchedArrayTerm }).fill(false))
             setIsMatchedArrayDef(Array.from({ length: isMatchedArrayDef }).fill(false))
             setTermSelectedArray(Array.from({ length: termSelectedArray }).fill(false))
             setDefSelectedArray(Array.from({ length: defSelectedArray }).fill(false))
             setCurrentTermSelected(-1);
             setCurrentDefSelected(-1);
-            this.shuffleArray();
+        }
+
+        const handleMatchingNextClicked=()=>{
+            unsetAttributes()
+            let tempStartIndex = (this.state.startIndex+1)%this.props.numberOfPairs;
+            this.spawnShownArray([this.state.shuffledTermsList,this.state.shuffledDefsList],tempStartIndex);
         }
 
         const getMatchingTermClassName=(index)=>{
@@ -188,6 +225,7 @@ class MatchingClass extends Component{
         return(
             <>
                 <button id="MatchingResetBtn" onClick={()=>resetMatching()}><i className="fa-solid fa-arrows-rotate"></i></button>
+                <button id="MatchingNextBtn" onClick={()=>handleMatchingNextClicked()}>Next</button>
                 <div className="column">
                     {this.state.termsList.map((term, index) => (
                         <div

@@ -53,6 +53,11 @@
 
 #MatchingResetBtn{
     position: absolute;
+    right: 10vw;
+    top: 5vh;
+}
+#MatchingNextBtn{
+    position: absolute;
     right: 5vw;
     top: 5vh;
 }
