@@ -1,0 +1,83 @@
+#MatchingSettings{
+    /* height: 85vh; */
+    margin-top: 100px;
+    width: 98vw;
+    justify-content: center;
+}
+#MatchingSettingsContainer{
+    border: 1px solid white;
+    /* height: 50vh; */
+    width: 50vw;
+    text-align: center;
+    border-radius: 50px;
+    justify-content: center;
+    margin: auto;
+}
+#MatchingSettingsHeader{
+    padding-top: 30px;
+    padding-bottom: 20px;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+}
+#MatchingSettingsContents{
+    /* height: 500px; */
+    height: 80%;
+    /* width: 50vw; */
+    justify-content: center;
+    margin: auto;
+}
+.MatchingSettingAttributes{
+    margin-top: 25px;
+    justify-content:space-between;
+    display: flex;
+    color:white;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+#MatchingUpdateBtn{
+    height:50px;
+    width:100px;
+}
+
+.MatchingSettingsNumberInput{
+    margin-top: 10px;
+    height: 35px;
+    width: 50px;
+    border: none;
+    /* border-bottom: 1px solid white; */
+    border-bottom: 2px solid white;
+    /* border-radius: 10px; */
+    background-color: transparent;
+    color: white;
+    /* resize: none; */
+    overflow: auto;
+    /* width: 45%; */
+    outline:none;
+}
+
+.MatchingSettingsNumberInput:focus{
+  border-bottom: 2px solid yellow; /* Change to desired color when focused or hovered */
+}
+
+#MatchingSettingsWarningMessage{
+    color: red;
+    
+}
+
+#MatchingSettingsResetBtn{
+    background-color: transparent;
+    outline: none;
+    border: 2px solid white;
+    border-radius: 20px;
+    color: white;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    height: 5vh;
+    width: 100px;
+
+}
+#MatchingSettingsResetBtn:hover{
+    background-color: grey;
+}

@@ -8,7 +8,27 @@
     border:none;
     font-size: x-large;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  }
+}
+
+#MatchingOptionsButton{
+    position: absolute;
+    background-color: transparent;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 75px;
+    outline: none;
+    border: 2px solid white;
+    white-space: pre-line;
+    border-radius: 10px;
+    top: 20px;
+    right: 10px;
+}
+#MatchingOptionsButton:hover{
+    background-color: grey;
+}
 #MatchingContainingDiv{
     height:95vh;
     width:98vw;
@@ -19,6 +39,7 @@
 }
 
 #MatchingColumnsArea{
+    margin-top: 50px;
     display:flex;
 }
 
@@ -49,15 +70,48 @@
     width: 50%;
     padding: 10px;
     color: white;
+    height: auto;
+    font-size: 2vh;
 }
 
-#MatchingResetBtn{
-    position: absolute;
-    right: 10vw;
-    top: 5vh;
+#MatchingOptionsContainerContainer{
+    width: 99vw;
+    height: auto;
+    text-align: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+    margin-top: 50px;
 }
-#MatchingNextBtn{
-    position: absolute;
-    right: 5vw;
-    top: 5vh;
+#MatchingOptionsContainer{
+    width: 20vw;
+    height: auto;
+    border: 2px solid white;
+    border-radius: 30px;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+    padding: 10px;
+}
+
+#MatchingOptionsHeader{
+    margin-top: 1vw;
+    font-size: 1.5vw;
+    color: white;
+}
+
+#MatchingOptionButtonsContainer{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.MatchingOptionsItem{
+    margin-left: 1vw;
+    margin-right: 1vw;
+    font-size: 1vw;
 }
