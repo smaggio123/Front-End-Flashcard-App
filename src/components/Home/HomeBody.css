@@ -56,3 +56,15 @@ thead{
 .homeBodyTr:hover #homeBodyMenuBtn  {
     visibility: visible;
 }
+#HomeBodyAddBtn{
+    position: fixed;
+    bottom: 5vh;
+    right: 4vw;
+    border-radius: 50%;
+    height: 5vh;
+    width: 5vh;
+    border: 2px solid white;
+    background-color: rgb(40, 40, 194);
+    color: white;
+    font-size: 1vw;
+}

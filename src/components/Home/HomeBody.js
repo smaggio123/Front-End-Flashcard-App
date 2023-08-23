@@ -43,6 +43,7 @@ function HomeBody() {
                     </tbody>
                 </table>
             </div>
+            <button id='HomeBodyAddBtn' onClick={()=>alert("Go to make set page")}><i className="fa-solid fa-plus" style={{color:"#fafafa"}}></i></button>
         </>
     )
 }

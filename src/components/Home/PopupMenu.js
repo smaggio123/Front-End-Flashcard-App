@@ -18,7 +18,11 @@ function PopupMenu({list, setList, index}) {
             alert("Did not delete")
         }
     }
-
+    const handleSharedClicked = () => {
+        navigator.clipboard.writeText('http://localhost:3000/home/SetDisplay?data='+encodeURIComponent(list[index]))
+        alert("Copied link to clipboard")
+    }
+    
     return(
         <>
             <div id='PopupMenuContainer'>
@@ -28,7 +32,7 @@ function PopupMenu({list, setList, index}) {
                 <hr className='PopupMenuDivider'/>
                 <button className='PopupMenuBtn'>Move</button>
                 <hr className='PopupMenuDivider'/>
-                <button className='PopupMenuBtn'>Share</button>
+                <button className='PopupMenuBtn' onClick={()=>handleSharedClicked()}>Share</button>
             </div>
         </>
     )
