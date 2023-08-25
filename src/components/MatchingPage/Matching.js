@@ -1,7 +1,8 @@
 import "./Matching.css";
 import { React,useState,Component } from 'react';
-import { useLocation,useNavigate } from 'react-router-dom';
 import MatchingSettingsPage from "./MatchingSettingsPage";
+import LearnBtn from "../LearnBtn";
+import TitleHeader from "../TitleHeader";
 
 function Matching(){
     const [numberOfPairs,setNumberOfPairs] = useState(5);
@@ -14,24 +15,13 @@ function Matching(){
     const [defSelectedArray,setDefSelectedArray] = useState(Array.from({ length: numberOfPairs }).fill(false));
     const [currentTermSelected,setCurrentTermSelected] = useState(-1);
     const [currentDefSelected,setCurrentDefSelected] = useState(-1);
-    let navigate = useNavigate();
-    const location = useLocation();
-    const searchParams = new URLSearchParams(location.search);
-    const selectedData = searchParams.get('data');
-
-    //Sends user back to learn page
-    const handleBackTolearn = () =>{
-        const { pathname } = location;
-        const newUrl = `${pathname.substring(0, pathname.lastIndexOf('/'))}?data=${encodeURIComponent(selectedData)}`;
-        navigate(newUrl)
-    }
     
     return (
         <>
-            <button id="back-button" style={{color:"white"}} onClick={()=>handleBackTolearn()}>Learn</button>
+            <LearnBtn/>
+            <TitleHeader title={"Matching"}/>
             <button id="MatchingOptionsButton" onClick={()=>setIsSettingsShowing(!isSettingsShowing)}>{isSettingsShowing? "Hide settings":"Show\nsettings"}</button>
             <div id="MatchingContainingDiv">
-                <h1 id="MatchingTitleHeader">Matching</h1>
                 <MatchingClass isSettingsShowing={isSettingsShowing} setIsSettingsShowing={setIsSettingsShowing} numberOfPairsInput={numberOfPairsInput} setNumberOfPairsInput={setNumberOfPairsInput} nextStepSize={nextStepSize} setNextStepSize={setNextStepSize} isMatchedArrayTerm={isMatchedArrayTerm} isMatchedArrayDef={isMatchedArrayDef} setIsMatchedArrayTerm={setIsMatchedArrayTerm} setIsMatchedArrayDef={setIsMatchedArrayDef} termSelectedArray={termSelectedArray} setTermSelectedArray={setTermSelectedArray} defSelectedArray={defSelectedArray} setDefSelectedArray={setDefSelectedArray} currentTermSelected={currentTermSelected} setCurrentTermSelected={setCurrentTermSelected} currentDefSelected={currentDefSelected} setCurrentDefSelected={setCurrentDefSelected} numberOfPairs={numberOfPairs} setNumberOfPairs={setNumberOfPairs}/>
             </div>
         </>

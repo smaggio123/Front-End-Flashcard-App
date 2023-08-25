@@ -1,15 +1,3 @@
-#back-button {
-    position: fixed;
-    top: 20px; /* Adjust the value as per your preference */
-    left: 20px; /* Adjust the value as per your preference */
-    height:60px;
-    width: 70px;
-    background-color: transparent;
-    border:none;
-    font-size: x-large;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
 #MatchingOptionsButton{
     position: absolute;
     background-color: transparent;
@@ -32,10 +20,6 @@
 #MatchingContainingDiv{
     height:95vh;
     width:98vw;
-}
-#MatchingTitleHeader{
-    color: white;
-    text-align: center;
 }
 
 #MatchingColumnsArea{

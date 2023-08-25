@@ -1,4 +1,5 @@
 import LearnBtn from "../LearnBtn";
+import TitleHeader from "../TitleHeader";
 import "./CopyArea.css";
 import { React,useState, useRef, useEffect } from 'react';
 
@@ -113,13 +114,13 @@ function CopyArea(){
     return(
         <>
         <LearnBtn/>
+        <TitleHeader title={"Copy Area"}/>
         <div id="CopyAreaTimerContainer">
                 <div id="CopyAreaTimerContainingDiv">
                     <h2 id="CopyAreaTimerDisplayedTime">{totalTime}</h2>
                 </div>
             </div>
         <div id="copyAreaContainingDiv">
-            <h1 id="copyAreaTitleHeader">Copy Area</h1>
             <h2 id="copyAreaCurrentTerm">{currentTerm}</h2>
             <div id="copyAreaContainingShownWords" style={{border: copyAreaBorderColorWhite? "1px solid white": "1px solid green"}}>
                 <p id="copyAreaShowingDef" style={{visibility: showDefinition? "visible":"hidden"}}>{currentDef}</p>

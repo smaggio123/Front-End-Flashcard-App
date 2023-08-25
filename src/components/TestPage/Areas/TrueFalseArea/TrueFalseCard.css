@@ -1,0 +1,74 @@
+#TrueFalseCardContainer{
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 45%;
+    background-color: rgba(100,100,100,.5);
+}
+
+#TrueFalseCardIndexLabel{
+    text-align: left;
+    color: white;
+    margin-left: 10px;
+}
+
+#TrueFalseCardDivider{
+    margin-bottom: 20px;
+    /* background-color: rgba(100, 100, 100, .5); */
+    border:2px solid rgba(20, 20, 20, .5);
+}
+#TrueFalseCardDisplayWords{
+    display: flex;
+    /* justify-content: center; */
+    margin: auto;
+    margin-bottom: 30px;
+
+}
+
+#TrueFalseCardHelpDisplay{
+    color: rgba(255, 255, 255, .5);
+    text-align: left;
+    margin-left: 7%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.TrueFalseCardWordDisplayed{
+    color: white;
+}
+
+#TrueFalseCardLeftSide{
+    margin-left: 7%;
+    text-align: left;
+    width: 46%;
+}
+#TrueFalseCardRightSide{
+    border-left: 4px solid white;
+    padding-left: 20px;
+}
+
+.TrueFalseCardTermDefHeader{
+    color: rgba(255, 255, 255, .5);
+    font-size: larger;
+    margin-bottom: 20px;
+}
+
+#TrueFalseCardDefDisplay{
+    text-align: left;
+}
+
+#TrueFalseCardSelection{
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+}
+
+.TrueFalseCardBtn{
+    width: 40%;
+    height: 50px;
+    border-radius: 10px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    color: white;
+
+}

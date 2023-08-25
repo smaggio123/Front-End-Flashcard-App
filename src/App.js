@@ -9,6 +9,7 @@ import CopyArea from './components/CopyAreaPage/CopyArea';
 import Matching from './components/MatchingPage/Matching';
 import EditPage from './components/EditPage/EditPage';
 import Learn from './components/LearnPage/Learn';
+import TestPage from './components/TestPage/TestPage';
 function App() {
   return (
     <>
@@ -23,6 +24,7 @@ function App() {
           <Route path="/home/SetDisplay/copy" element={<CopyArea />}/>
           <Route path="/home/SetDisplay/matching" element={<Matching/>}/>
           <Route path="/home/setDisplay/learn" element={<Learn/>}/>
+          <Route path="/home/setDisplay/test" element={<TestPage/>}/>
           <Route path="/home/setDisplay/edit" element={<EditPage />}/>
 
 

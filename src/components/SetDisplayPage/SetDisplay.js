@@ -29,6 +29,7 @@ function SetDisplay () {
         navigate(`./written?data=${encodeURIComponent(selectedData)}`)
     }
     const handleTest = () =>{
+        navigate(`./test?data=${encodeURIComponent(selectedData)}`)
     }
     const handleEdit = () =>{
         navigate(`./edit?data=${encodeURIComponent(selectedData)}`)
