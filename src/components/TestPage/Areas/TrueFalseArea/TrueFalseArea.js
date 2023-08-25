@@ -30,11 +30,11 @@ function TrueFalseArea (props) {
     return(
         <>
             {trueFalseList.map((item,index)=>(
-                    <div key={index} id='TrueFalseAreaFullWidth'>
-                        <div id='TrueFalseAreaContainer'>
-                            <TrueFalseCard term={trueFalseList[index][0]} definition={randomizeTrueFalse(index)} index={index} listOfInputAnswers={listOfInputAnswers} setListOfInputAnswers={setListOfInputAnswers}/>
-                        </div>
+                <div key={index} id='TrueFalseAreaFullWidth'>
+                    <div id='TrueFalseAreaContainer'>
+                        <TrueFalseCard term={trueFalseList[index][0]} definition={randomizeTrueFalse(index)} index={index} listOfInputAnswers={listOfInputAnswers} setListOfInputAnswers={setListOfInputAnswers}/>
                     </div>
+                </div>
             ))}
         </>
     )

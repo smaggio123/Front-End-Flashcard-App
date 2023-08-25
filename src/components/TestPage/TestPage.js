@@ -5,6 +5,7 @@ import LearnBtn from '../LearnBtn';
 import TrueFalseArea from './Areas/TrueFalseArea/TrueFalseArea';
 import MultipleChoiceArea from './Areas/MultipleChoiceArea/MultipleChoiceArea';
 import MatchingArea from './Areas/MatchingArea/MatchingArea';
+import WrittenArea from './Areas/WrittenArea/WrittenArea';
 
 function TestPage () {
     const [showTest,setShowTest] = useState(false)
@@ -47,8 +48,7 @@ function TestPage () {
     var trueFalseList = shuffledList.slice(0,section(1,4))
     var multipleChoiceList = shuffledList.slice(section(1,4),section(2,4))
     var matchingList = shuffledList.slice(section(2,4),section(3,4))
-    var writtenList = shuffledList.slice(section(3,4),shufflePairs.length)
-
+    var writtenList = shuffledList.slice(section(3,4),shuffledList.length)
 
 
     return(
@@ -70,7 +70,7 @@ function TestPage () {
             <MatchingArea matchingList={matchingList} shuffledList={shuffledList} listOfInputAnswers={listOfInputAnswers} setListOfInputAnswers={setListOfInputAnswers} startIndex={section(2,4)} totalPairs={section(3,4)}/>
         </div>
         <div id='TestPageWrittenArea'>
-
+            <WrittenArea writtenAreaList={writtenList} shuffledList={shuffledList} listOfInputAnswers={listOfInputAnswers} setListOfInputAnswers={setListOfInputAnswers} startIndex={section(3,4)} totalPairs={section(4,4)}/>
         </div>
         </>
         }

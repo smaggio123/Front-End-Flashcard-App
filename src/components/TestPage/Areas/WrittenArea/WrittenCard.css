@@ -1,0 +1,53 @@
+#WrittenChoiceCardContainer{
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 45%;
+    background-color: rgba(100,100,100,.5);
+    padding-bottom: 30px;
+}
+
+#WrittenChoiceCardTopArea{
+    text-align: left;
+    margin-left: 8%;
+}
+
+#WrittenChoiceCardTermDefHeader{
+    color: rgba(255, 255, 255, .5);
+}
+
+#WrittenChoiceCardDefDisplay{
+    color: white;
+    margin-bottom: 50px;
+}
+#WrittenCardMessage{
+    text-align: left;
+    margin-left: 8%;
+    color: rgba(255, 255, 255, .5);
+
+}
+#WrittenChoiceInputContainer{
+    width: 100%;
+    text-align: left;
+    justify-content: left;
+}
+#WrittenChoiceInput{
+    margin: auto;
+    background-color: rgb(10, 9, 45);
+    outline: none;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+    padding: 20px;
+    font-size: medium;
+    margin-left: 7%;
+    width: 80%;
+}
+#WrittenChoiceInput:focus{
+    /* border-bottom: 2px solid yellow; */
+    border: 2px solid yellow;
+}
+#WrittenChoiceInput::placeholder{
+    color: white;
+}
