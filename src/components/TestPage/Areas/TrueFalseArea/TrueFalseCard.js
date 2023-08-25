@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import "./TrueFalseCard.css";
+import IndexHeader from '../../GeneralComponents/IndexHeader';
 
 function TrueFalseCard (props) {
     const {term,definition,index,listOfInputAnswers, setListOfInputAnswers} = props
@@ -38,10 +39,7 @@ function TrueFalseCard (props) {
     return(
         <>
         <div id='TrueFalseCardContainer'>
-            <div id='TrueFalseCardIndexLabel'>
-                <p>{index+1}</p>
-            </div>
-            <hr id='TrueFalseCardDivider'/>
+            <IndexHeader index={index}/>
 
             <div id='TrueFalseCardDisplayWords'>
                 <div id='TrueFalseCardLeftSide'>

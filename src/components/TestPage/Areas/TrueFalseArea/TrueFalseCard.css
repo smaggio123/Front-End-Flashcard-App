@@ -5,19 +5,9 @@
     border-radius: 10px;
     width: 45%;
     background-color: rgba(100,100,100,.5);
+    padding-bottom: 30px;
 }
 
-#TrueFalseCardIndexLabel{
-    text-align: left;
-    color: white;
-    margin-left: 10px;
-}
-
-#TrueFalseCardDivider{
-    margin-bottom: 20px;
-    /* background-color: rgba(100, 100, 100, .5); */
-    border:2px solid rgba(20, 20, 20, .5);
-}
 #TrueFalseCardDisplayWords{
     display: flex;
     /* justify-content: center; */
@@ -49,7 +39,7 @@
 
 .TrueFalseCardTermDefHeader{
     color: rgba(255, 255, 255, .5);
-    font-size: larger;
+    font-size: large;
     margin-bottom: 20px;
 }
 
@@ -65,10 +55,14 @@
 
 .TrueFalseCardBtn{
     width: 40%;
-    height: 50px;
+    height: 60px;
     border-radius: 10px;
     background-color: transparent;
     border: 2px solid rgba(255, 255, 255, .5);
     color: white;
+}
 
+.TrueFalseCardBtn:hover{
+    border: 2px solid white;
+    background-color: grey;
 }

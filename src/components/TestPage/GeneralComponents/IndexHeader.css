@@ -1,0 +1,11 @@
+#IndexHeaderIndexLabel{
+    text-align: left;
+    color: white;
+    margin-left: 10px;
+}
+
+#IndexHeaderCardDivider{
+    margin-bottom: 20px;
+    /* background-color: rgba(100, 100, 100, .5); */
+    border:2px solid rgba(20, 20, 20, .5);
+}

@@ -1,0 +1,51 @@
+#MultipleChoiceCardContainer{
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 45%;
+    background-color: rgba(100,100,100,.5);
+    padding-bottom: 30px;
+}
+#MultipleChoiceCardTopArea{
+    text-align: left;
+    margin-left: 8%;
+}
+#MultipleChoiceCardTermDefHeader{
+    color: rgba(255, 255, 255, .5);
+
+}
+#MultipleChoiceCardDefDisplay{
+    color: white;
+    margin-bottom: 50px;
+}
+
+#MultipleChoiceCardOptionLabel{
+    text-align: left;
+    color: rgba(255, 255, 255, .5);
+    margin-left: 8%;
+}
+
+#MultipleChoiceCardOptionsContainer{
+    width: 85%;
+    margin: auto;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 20px;
+    column-gap: 50px;
+  }
+
+.grid-item {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: transparent;
+    color: white;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .5);
+    }
+.grid-item:hover {
+    border: 2px solid white;
+    background-color: grey;
+}

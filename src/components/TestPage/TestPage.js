@@ -3,6 +3,7 @@ import "./TestPage.css";
 import TitleHeader from '../TitleHeader';
 import LearnBtn from '../LearnBtn';
 import TrueFalseArea from './Areas/TrueFalseArea/TrueFalseArea';
+import MultipleChoiceArea from './Areas/MultipleChoiceArea/MultipleChoiceArea';
 
 function TestPage () {
     const [showTest,setShowTest] = useState(false)
@@ -62,7 +63,7 @@ function TestPage () {
             <TrueFalseArea trueFalseList={trueFalseList} shuffledList={shuffledList} firstSection={section(1,4)} listOfInputAnswers={listOfInputAnswers} setListOfInputAnswers={setListOfInputAnswers}/>
         </div>
         <div id='TestPageMultipleChoiceArea'>
-
+            <MultipleChoiceArea multipleChoiceList={multipleChoiceList} shuffledList={shuffledList} listOfInputAnswers={listOfInputAnswers} setListOfInputAnswers={setListOfInputAnswers} startIndex={section(1,4)}/>
         </div>
         <div id='TestPageMatching'>
 
