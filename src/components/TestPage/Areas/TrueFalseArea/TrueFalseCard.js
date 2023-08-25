@@ -39,7 +39,7 @@ function TrueFalseCard (props) {
     return(
         <>
         <div id='TrueFalseCardContainer'>
-            <IndexHeader index={index}/>
+            <IndexHeader index={index+1}/>
 
             <div id='TrueFalseCardDisplayWords'>
                 <div id='TrueFalseCardLeftSide'>

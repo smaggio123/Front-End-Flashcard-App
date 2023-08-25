@@ -23,7 +23,7 @@ function MultipleChoiceCard (props) {
     return(
         <>
             <div id='MultipleChoiceCardContainer'>
-                <IndexHeader index={index}/>
+                <IndexHeader index={index+1}/>
                 <div id='MultipleChoiceCardTopArea'>
                     <p id='MultipleChoiceCardTermDefHeader'>Definition</p>
                     <p id='MultipleChoiceCardDefDisplay'>{definition}</p>

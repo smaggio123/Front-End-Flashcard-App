@@ -6,7 +6,7 @@ function IndexHeader (props) {
     return(
         <>
         <div id='IndexHeaderIndexLabel'>
-            <p>{index+1}</p>
+            <p>{index}</p>
         </div>
         <hr id='IndexHeaderCardDivider'/>
         </>

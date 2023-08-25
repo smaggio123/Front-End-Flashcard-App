@@ -1,0 +1,33 @@
+#MatchingCardContainer{
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 45%;
+    background-color: rgba(100,100,100,.5);
+    padding-bottom: 30px;
+}
+#MatchingCardFlexedContainer{
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+    font-size: small;
+}
+#MatchingCardLeftSide{
+    width: 39%;
+}
+.MatchingCardSelection{
+    margin-top: 10px;
+    height: 20px;
+}
+#MatchingCardMiniCard{
+    display: flex;
+    color: white;
+}
+#MatchingCardTermDisplay{
+    margin-left: 20px;
+}
+#MatchingCardRightSide{
+    width: 39%;
+    border-left: 2px solid white;
+}

@@ -4,6 +4,7 @@ import TitleHeader from '../TitleHeader';
 import LearnBtn from '../LearnBtn';
 import TrueFalseArea from './Areas/TrueFalseArea/TrueFalseArea';
 import MultipleChoiceArea from './Areas/MultipleChoiceArea/MultipleChoiceArea';
+import MatchingArea from './Areas/MatchingArea/MatchingArea';
 
 function TestPage () {
     const [showTest,setShowTest] = useState(false)
@@ -66,7 +67,7 @@ function TestPage () {
             <MultipleChoiceArea multipleChoiceList={multipleChoiceList} shuffledList={shuffledList} listOfInputAnswers={listOfInputAnswers} setListOfInputAnswers={setListOfInputAnswers} startIndex={section(1,4)}/>
         </div>
         <div id='TestPageMatching'>
-
+            <MatchingArea matchingList={matchingList} shuffledList={shuffledList} listOfInputAnswers={listOfInputAnswers} setListOfInputAnswers={setListOfInputAnswers} startIndex={section(2,4)} totalPairs={section(3,4)}/>
         </div>
         <div id='TestPageWrittenArea'>
 
