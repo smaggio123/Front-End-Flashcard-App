@@ -3,8 +3,26 @@ import "./MultipleChoiceCard.css";
 import IndexHeader from '../../GeneralComponents/IndexHeader';
 
 function MultipleChoiceCard (props) {
-    const {definition,multipleChoiceOptions,index,listOfInputAnswers,setListOfInputAnswers}=props;
+    const {multipleChoiceList, shuffledList,index,startIndex,listOfInputAnswers,setListOfInputAnswers}=props;
+
+    const shuffleArray=(arr)=>{
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr
+    }
     const [choicePicked,setChoicePicked] = useState(null)
+    
+    const [multipleChoiceOptions,setMultipleChoiceOptions] = useState(()=>{
+        let finalList = [multipleChoiceList[index][0]]
+        let tempOptions = shuffleArray(shuffledList).slice(0,4)
+        for(let i=0;i<3;i++){
+            finalList.push(tempOptions[i][0])
+        }
+        return shuffleArray(finalList)
+    });
+
     const handleChoiceClicked = (i) => {
         let tempListAnswers=[]
         if(choicePicked!==i){
@@ -23,10 +41,10 @@ function MultipleChoiceCard (props) {
     return(
         <>
             <div id='MultipleChoiceCardContainer'>
-                <IndexHeader index={index+1}/>
+                <IndexHeader index={startIndex+index+1}/>
                 <div id='MultipleChoiceCardTopArea'>
                     <p id='MultipleChoiceCardTermDefHeader'>Definition</p>
-                    <p id='MultipleChoiceCardDefDisplay'>{definition}</p>
+                    <p id='MultipleChoiceCardDefDisplay'>{multipleChoiceList[index][1]}</p>
                 </div>
                 <div>
                     <p id='MultipleChoiceCardOptionLabel'>Options:</p>

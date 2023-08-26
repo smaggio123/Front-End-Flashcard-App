@@ -40,7 +40,8 @@ function TestPage () {
         }
         return tempArr
     }
-    const [shuffledList,setShuffledList]=useState(shufflePairs())
+    // const [shuffledList,setShuffledList]=useState(shufflePairs())
+    const shuffledList = shufflePairs();
 
     const section = (section,totalSections) => {
         return Math.floor(shuffledList.length/totalSections)*section
