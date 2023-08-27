@@ -1,0 +1,28 @@
+#TestPageSubmitBtnContainer{
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+#TestPageSubmitMessage{
+    white-space: pre-line;
+    color: white;
+}
+#TestPageSubmitBtn{
+    margin: auto;
+    color: white;
+    background-color: transparent;
+    border: 2px solid white;
+    font-size: medium;
+    padding: 10px;
+    border-radius: 20px;
+    width: 150px;
+}
+#TestPageSubmitBtn:hover{
+    background-color: rgb(225,225,0);
+    color: black;
+}
+#TestPageSubmitBtn:focus{
+    border: 2px solid yellow;
+    outline: 1px solid yellow;
+}

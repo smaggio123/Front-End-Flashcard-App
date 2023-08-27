@@ -52,6 +52,14 @@ function TestPage () {
     var writtenList = shuffledList.slice(section(3,4),shuffledList.length)
 
 
+    const checkAnswers=()=>{
+        let correctCount = 0;
+        for(let i = 0;i<listOfInputAnswers.length;i++){
+            if(listOfInputAnswers[i])correctCount++
+        }
+        if(correctCount===listOfInputAnswers.length) alert("You got 100% correct, Congrats!")
+        else alert("You got " + correctCount + " right out of "+listOfInputAnswers.length+" or " + ((correctCount/listOfInputAnswers.length)*100)+"%")
+    }
     return(
     <>
         <LearnBtn/>
@@ -72,6 +80,10 @@ function TestPage () {
         </div>
         <div id='TestPageWrittenArea'>
             <WrittenArea writtenAreaList={writtenList} shuffledList={shuffledList} listOfInputAnswers={listOfInputAnswers} setListOfInputAnswers={setListOfInputAnswers} startIndex={section(3,4)} totalPairs={section(4,4)}/>
+        </div>
+        <div id='TestPageSubmitBtnContainer'>
+            <h3 id='TestPageSubmitMessage'>{"Happy with your answers?\n\nSubmit down here to check your work."}</h3>
+            <button id='TestPageSubmitBtn' onClick={()=>checkAnswers()}>Submit</button>
         </div>
         </>
         }

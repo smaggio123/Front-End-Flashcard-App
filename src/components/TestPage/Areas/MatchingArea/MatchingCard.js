@@ -11,7 +11,7 @@ function MatchingCard (props) {
             tempArr[i+index]=null
         }
         else{
-            tempArr[i+index]=val
+            tempArr[i+index]=(val==='true')
         }
         setListOfInputAnswers(tempArr)
     }

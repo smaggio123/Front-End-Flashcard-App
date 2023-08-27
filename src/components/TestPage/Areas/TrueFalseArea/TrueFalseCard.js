@@ -3,7 +3,7 @@ import "./TrueFalseCard.css";
 import IndexHeader from '../../GeneralComponents/IndexHeader';
 
 function TrueFalseCard (props) {
-    const {term,definition,index,listOfInputAnswers, setListOfInputAnswers} = props
+    const {term,definition,actualDefinition,index,listOfInputAnswers, setListOfInputAnswers} = props
     const [trueClicked,setTrueClicked] = useState(false)
     const [falseClicked,setfalseClicked] = useState(false)
     const handleTrueClicked=()=>{
@@ -16,7 +16,7 @@ function TrueFalseCard (props) {
         else{
             setTrueClicked(!trueClicked);
             let tempArr = listOfInputAnswers
-            tempArr[index] = true
+            tempArr[index] = true===(definition===actualDefinition)
             setListOfInputAnswers(tempArr)
         }
         setfalseClicked(false);
@@ -31,7 +31,7 @@ function TrueFalseCard (props) {
         else{
             setfalseClicked(!falseClicked);
             let tempArr = listOfInputAnswers
-            tempArr[index] = false
+            tempArr[index] = false===(definition===actualDefinition)
             setListOfInputAnswers(tempArr)
         }
         setTrueClicked(false)

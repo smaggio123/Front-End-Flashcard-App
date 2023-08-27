@@ -34,7 +34,7 @@ function MatchingArea (props) {
     return(
         <>
             <div id='MatchingAreaFullWidth'>
-                <MatchingCard termList={fullShuffledList[0]} defList={fullShuffledList[1]} listOfInputAnswers={listOfInputAnswers} setListOfInputAnswers={setListOfInputAnswers} index={startIndex+1} totalPairs={totalPairs}/>
+                <MatchingCard termList={fullShuffledList[0]} defList={fullShuffledList[1]} listOfInputAnswers={listOfInputAnswers} setListOfInputAnswers={setListOfInputAnswers} index={startIndex} totalPairs={totalPairs}/>
             </div>
         </>
     )

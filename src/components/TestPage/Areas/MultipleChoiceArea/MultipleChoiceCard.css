@@ -37,15 +37,19 @@
     column-gap: 50px;
   }
 
-.grid-item {
+.MutltipleChoiceCardOption {
     padding: 20px;
     border-radius: 10px;
     background-color: transparent;
     color: white;
     outline: none;
     border: 2px solid rgba(255, 255, 255, .5);
-    }
-.grid-item:hover {
+}
+.MutltipleChoiceCardOption:hover {
     border: 2px solid white;
     background-color: grey;
+}
+.MutltipleChoiceCardOption:focus {
+    border: 1px solid yellow;
+    outline: 2px solid yellow;
 }
