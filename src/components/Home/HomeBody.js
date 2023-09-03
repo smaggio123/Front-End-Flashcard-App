@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 import './HomeBody.css'
 import PopUpMenu from './PopupMenu';
 
@@ -13,7 +13,7 @@ function HomeBody() {
         navigate(`/home/SetDisplay?data=${encodeURIComponent(listItem)}`)
     }
 
-      const popupClicked = (i) =>{
+    const popupClicked = (i) =>{
         if(i!==currentPopupMenuIndex){
             setCurrentPopupMenuIndex(i)
             setShowMyPopUpMenu(true);
@@ -21,7 +21,11 @@ function HomeBody() {
         else{
             setShowMyPopUpMenu(!showMyPopUpMenu);
         }
-      }
+    }
+    const handleAddSet=()=>{
+        navigate(`/home/add`)
+    }
+
     return(
         <>
             <div className="content">
@@ -43,7 +47,7 @@ function HomeBody() {
                     </tbody>
                 </table>
             </div>
-            <button id='HomeBodyAddBtn' onClick={()=>alert("Go to make set page")}><i className="fa-solid fa-plus" style={{color:"#fafafa"}}></i></button>
+            <button id='HomeBodyAddBtn' onClick={()=>handleAddSet()}><i className="fa-solid fa-plus" style={{color:"#fafafa"}}></i></button>
         </>
     )
 }

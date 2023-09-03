@@ -15,10 +15,6 @@ function SetDisplay () {
     const [cardIndex, setCardIndex] = useState(0);
     const [termOrDefinition, setTermOrDefinition] = useState(0);
     
-    const handleLearn = () =>{
-        //alert(selectedData)
-        navigate(`/home/SetDisplay/learn?data=${encodeURIComponent(selectedData)}`)
-    }
     const handleMatch = () =>{
         navigate(`./matching?data=${encodeURIComponent(selectedData)}`)
     }

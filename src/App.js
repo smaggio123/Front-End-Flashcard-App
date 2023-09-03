@@ -11,6 +11,10 @@ import EditPage from './components/EditPage/EditPage';
 import Learn from './components/LearnPage/Learn';
 import TestPage from './components/TestPage/TestPage';
 function App() {
+  const editMode = {
+    editSetMode: 0,
+    addSetMode: 1
+  };
   return (
     <>
       <BrowserRouter>
@@ -25,7 +29,8 @@ function App() {
           <Route path="/home/SetDisplay/matching" element={<Matching/>}/>
           <Route path="/home/setDisplay/learn" element={<Learn/>}/>
           <Route path="/home/setDisplay/test" element={<TestPage/>}/>
-          <Route path="/home/setDisplay/edit" element={<EditPage />}/>
+          <Route path="/home/setDisplay/edit" element={<EditPage mode={editMode.editSetMode} modeEnum={editMode} />}/>
+          <Route path="/home/add" element={<EditPage mode={editMode.addSetMode} modeEnum={editMode}/>}/>
 
 
         </Routes>
