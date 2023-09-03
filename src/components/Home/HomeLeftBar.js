@@ -11,7 +11,7 @@ function HomeLeftBar() {
         setSelectedFolder(folderIndex);
       };
     const handleAddClicked = () =>{
-        let tempList = folderList;
+        const tempList = [...folderList];
         let userInputName = prompt("Add folder");
         if(userInputName!=null){
             setShowMyPopUpMenu(false)

@@ -6,12 +6,43 @@
     border: 1px solid white;
 }
 
+#EditCardHeaderContainer{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
 #EditCardIndexHeader{
-    padding-top: 1%;
-    text-align: left;
-    height:2vh;
-    margin-left: 3vw;
     color: white;
+    font-size: larger;
+    height: 100%;
+    /*
+    padding-top: 1%;
+    height:2vh;
+    text-align: left;
+    margin-left: 3vw;
+    */
+}
+
+#EditCardRemoveBtn{
+    /* margin-top: 20px; */
+    background-color: transparent;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: large;
+    color: white;
+    outline: none;
+    border: none;
+    /*
+    position: relative;
+    right: 0;
+    top: 50%;
+    */
+}
+#EditCardRemoveBtnLogo{
+    /* background-color: transparent; */
 }
 
 #EditCardIndexDivider{

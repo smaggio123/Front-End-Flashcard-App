@@ -2,15 +2,15 @@ import React, { useState } from 'react'
 import "./EditCard.css";
 
 
-function EditCard ({ term, definition, GL, SL, pairIndex }) {
+function EditCard (props) {
+  const { term, definition, getList, setList, pairIndex } = props
   const [textarea1Content, setTextarea1Content] = useState(term);
   const [textarea2Content, setTextarea2Content] = useState(definition);
-  const [getList,setList] = useState(GL);
 
   const handleTextareaChange = (event, setter) => {
     const { value } = event.target;
     setter(value);
-    let tempList = getList;
+    const tempList = [...getList];
     if(event.target.id==="editCardTermInput"){
       tempList[pairIndex][0]=value;
       setList(tempList)
@@ -29,9 +29,18 @@ function EditCard ({ term, definition, GL, SL, pairIndex }) {
     }
   };
 
+  const handleDeleteBtnClicked = () => {
+    const tempList = [...getList]
+    tempList.splice(pairIndex, 1);
+    setList(tempList)
+  }
+
   return (
     <div id='editCardContainingDiv' >
-      <h2 id='EditCardIndexHeader'>{pairIndex+1}</h2>
+      <div id='EditCardHeaderContainer'>
+        <h2 id='EditCardIndexHeader'>{pairIndex+1}</h2>
+        <button id='EditCardRemoveBtn' onClick={()=>handleDeleteBtnClicked()}><i id='EditCardRemoveBtnLogo' className="fa-solid fa-trash"></i></button>
+      </div>
       <hr id='EditCardIndexDivider'/>
       <div id="EditCardInnerContainingDiv" >
       <textarea

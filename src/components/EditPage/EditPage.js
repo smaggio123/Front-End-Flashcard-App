@@ -11,6 +11,12 @@ function EditPage () {
         console.log(getList)
     }
 
+    const handleSaveBtnClicked=()=>{
+        const tempList = [...getList];
+        tempList.push(["",""])
+        setList(tempList)
+    }
+
     return(
         <>
         <LearnBtn/>
@@ -18,10 +24,11 @@ function EditPage () {
                 <h1 id='editPageTitleHeading'>Edit</h1>
                 <EditTitleCard/>
                 {getList.map((item, index) => (
-                    <div key={index}>
-                        <EditCard term={getList[index][0]} definition={getList[index][1]} GL={getList} SL={setList} pairIndex={index}/>
+                    <div key={item+index}>
+                        <EditCard term={getList[index][0]} definition={getList[index][1]} getList={getList} setList={setList} pairIndex={index}/>
                     </div>
                 ))}
+            <button id='EditPageAddBtn' onClick={()=>handleSaveBtnClicked()}><i className="fa-solid fa-plus" style={{color:"#fafafa"}}></i></button>
             </div>
             <button id='EditPageSaveBtn' onClick={EditPageSaveClicked}>Save</button>
 
