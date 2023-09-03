@@ -3,23 +3,7 @@ import "./EditCard.css";
 
 
 function EditCard (props) {
-  const { term, definition, getList, setList, pairIndex } = props
-  const [textarea1Content, setTextarea1Content] = useState(term);
-  const [textarea2Content, setTextarea2Content] = useState(definition);
-
-  const handleTextareaChange = (event, setter) => {
-    const { value } = event.target;
-    setter(value);
-    const tempList = [...getList];
-    if(event.target.id==="editCardTermInput"){
-      tempList[pairIndex][0]=value;
-      setList(tempList)
-    }
-    else{
-      tempList[pairIndex][1]=value;
-      setList(tempList)
-    }
-  };
+  const {getList, setList, pairIndex } = props
 
   const handleTextareaResize = (event) => {
     event.target.style.height = 'auto';
@@ -32,6 +16,9 @@ function EditCard (props) {
   const handleDeleteBtnClicked = () => {
     const tempList = [...getList]
     tempList.splice(pairIndex, 1);
+    for(let i = 0;i<tempList.length;i++){
+      tempList[i].id = i;
+    }
     setList(tempList)
   }
 
@@ -44,19 +31,28 @@ function EditCard (props) {
       <hr id='EditCardIndexDivider'/>
       <div id="EditCardInnerContainingDiv" >
       <textarea
-          value={textarea1Content}
-          onChange={(e) => handleTextareaChange(e, setTextarea1Content)}
+          value={getList[pairIndex].term}
+          onChange={(e) => {
+            let tempList = [...getList]
+            tempList[pairIndex].term = e.target.value;
+            setList(tempList)
+          }
+        }
           onInput={handleTextareaResize}
           className='editCardInput'
-          id='editCardTermInput'
+          id={'editCardTermInput'+pairIndex}
           rows={1}
           />
       <textarea
-          value={textarea2Content}
-          onChange={(e) => handleTextareaChange(e, setTextarea2Content)}
+          value={getList[pairIndex].definition}
+          onChange={(e) => {
+            let tempList = [...getList]
+            tempList[pairIndex].definition = e.target.value;
+            setList(tempList)
+          }}
           onInput={handleTextareaResize}
           className='editCardInput'
-          id='editCardDefInput'
+          id={'editCardDefInput'+pairIndex}
           rows={1}
           />
       </div>

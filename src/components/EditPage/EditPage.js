@@ -10,7 +10,7 @@ function EditPage (props) {
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const selectedData = searchParams.get('data');
-    const [titleOfSet,setTitleOfSet] = useState(selectedData);
+    const [titleOfSet,setTitleOfSet] = useState(selectedData?selectedData:"");
 
     const [getList,setList] = useState(()=>{
         //Do backend stuff here
@@ -19,15 +19,15 @@ function EditPage (props) {
         let list = [];
         if(mode === modeEnum.editSetMode){
             list = [
-                ["term1","def1"],
-                ["term2","def2"],
-                ["term3","def3"],
-                ["term4","def4"],
-                ["term5","def5"],
+                {id: 0, term: "term1", definition: "def1"},
+                {id: 1, term: "term2", definition: "def2"},
+                {id: 2, term: "term3", definition: "def3"},
+                {id: 3, term: "term4", definition: "def4"},
+                {id: 4, term: "term5", definition: "def5"}
             ]
         }
         else if(mode === modeEnum.addSetMode){
-            list = [["",""]]
+            list = [{id:0,term:"",definition:""}]
         }
         else{
             list = [];
@@ -41,9 +41,9 @@ function EditPage (props) {
         console.log(getList)
     }
 
-    const handleSaveBtnClicked=()=>{
+    const handleAddBtnClicked=()=>{
         const tempList = [...getList];
-        tempList.push(["",""])
+        tempList.push({id:getList.length,term:"",definition:""})
         setList(tempList)
     }
 
@@ -54,13 +54,13 @@ function EditPage (props) {
                 <TitleHeader title={"Edit"}/>
                 <EditTitleCard titleOfSet={titleOfSet} setTitleOfSet={setTitleOfSet}/>
                 {getList.map((item, index) => (
-                    <div key={item+index}>
-                    <EditCard term={getList[index][0]} definition={getList[index][1]} getList={getList} setList={setList} pairIndex={index}/>
+                    <div key={item.id}>
+                    <EditCard term={item.term} definition={item.definition} getList={getList} setList={setList} pairIndex={index}/>
                     </div>
                 ))}
-                <button id='EditPageAddBtn' onClick={()=>handleSaveBtnClicked()}><i className="fa-solid fa-plus" style={{color:"#fafafa"}}></i></button>
+                <button id='EditPageAddBtn' onClick={()=>handleAddBtnClicked()}><i className="fa-solid fa-plus" style={{color:"#fafafa"}}></i></button>
             </div>
-            <button id='EditPageSaveBtn' onClick={EditPageSaveClicked}>Save</button>
+            <button id='EditPageSaveBtn' onClick={()=>EditPageSaveClicked()}>Save</button>
 
         </>
     )
