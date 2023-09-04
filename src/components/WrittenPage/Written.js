@@ -5,50 +5,25 @@ import { React, useState} from 'react';
 import LearnBtn from '../LearnBtn';
 import TitleHeader from '../TitleHeader';
 
-/*
-    ["Diffusion","The passive movement of particles from an area of high concentration to low concentration. This happens along a concentration gradient"],
-    ["Osmosis","A passive movement of water molecules through a semi permeable membrane. Water moves from an area of low solute concentration to high solute concentration"],
-    ["Active Transport","An active movement where an input of energy is required. Particles move from low concentration to high concentration"],
-    ["Facilitated Diffusion","A passive movement of particles from high to low concentration through a protein channel in a cell."],
-    ["Isotonic Solution","The same concentration of dissolved substances. Water in = water out."],
-    ["Hypertonic Solution","Higher concentration of solutes outside cell than inside"],
-    ["Plasmolyse","When a cell has shrunk"],
-    ["Hypotonic Solution","A cell has more solute inside than outside."],
-    ["Turgid","Cell may explode under pressure due to a hypotonic solution."],
-    ["Exocytosis","Movement out of a cell"],
-    ["Endocytosis","Movement into a cell"],
-
-    ["The passive movement of particles from an area of high concentration to low concentration. This happens along a concentration gradient",0],
-    ["A passive movement of water molecules through a semi permeable membrane. Water moves from an area of low solute concentration to high solute concentration",1],
-    ["An active movement where an input of energy is required. Particles move from low concentration to high concentration",2],
-    ["A passive movement of particles from high to low concentration through a protein channel in a cell.",3],
-    ["The same concentration of dissolved substances. Water in = water out.",4],
-    ["Higher concentration of solutes outside cell than inside",5],
-    ["When a cell has shrunk",6],
-    ["A cell has more solute inside than outside.",7],
-    ["Cell may explode under pressure due to a hypotonic solution.",8],
-    ["Movement out of a cell",9],
-    ["Movement into a cell",10],
-*/
 
 function Written(){
     const [hintVisible, setHintVisible] = useState(false);
+    const [showRealWord,setShowRealWord] = useState(false);
+    const [correctWord,setCorrectWord] = useState("");
     const originalList = [
-        //[["word1","def1"],["word2","def2"],["word3","def3"],["word4","def4"],["word5","def5"]];
         ["Diffusion","The passive movement of particles from an area of high concentration to low concentration. This happens along a concentration gradient"],
         ["Osmosis","A passive movement of water molecules through a semi permeable membrane. Water moves from an area of low solute concentration to high solute concentration"],
         ["Active Transport","An active movement where an input of energy is required. Particles move from low concentration to high concentration"],
         ["Facilitated Diffusion","A passive movement of particles from high to low concentration through a protein channel in a cell."],
         ["Isotonic Solution","The same concentration of dissolved substances. Water in = water out."],
-    ["Hypertonic Solution","Higher concentration of solutes outside cell than inside"],
-    ["Plasmolyse","When a cell has shrunk"],
-    ["Hypotonic Solution","A cell has more solute inside than outside."],
-    ["Turgid","Cell may explode under pressure due to a hypotonic solution."],
-    ["Exocytosis","Movement out of a cell"],
-    ["Endocytosis","Movement into a cell"],
+        ["Hypertonic Solution","Higher concentration of solutes outside cell than inside"],
+        ["Plasmolyse","When a cell has shrunk"],
+        ["Hypotonic Solution","A cell has more solute inside than outside."],
+        ["Turgid","Cell may explode under pressure due to a hypotonic solution."],
+        ["Exocytosis","Movement out of a cell"],
+        ["Endocytosis","Movement into a cell"],
     ]
     const [setList,setSetList]=useState([
-        //[["word1","def1"],["word2","def2"],["word3","def3"],["word4","def4"],["word5","def5"]]
         ["Diffusion","The passive movement of particles from an area of high concentration to low concentration. This happens along a concentration gradient"],
         ["Osmosis","A passive movement of water molecules through a semi permeable membrane. Water moves from an area of low solute concentration to high solute concentration"],
         ["Active Transport","An active movement where an input of energy is required. Particles move from low concentration to high concentration"],
@@ -103,14 +78,38 @@ function Written(){
     const handleSubmit = () =>{
         setHintVisible(false);
         if(answerWithDefinition){
-            if(writtenInput===currentDef)alert("Correct")
-            else alert("Incorrect. answer was: "+currentDef)
+            if(writtenInput===currentDef){
+                alert("Correct")
+                nextPair()
+            }
+            else {
+                setHintVisible(false);
+                setShowRealWord(true);
+                setCorrectWord(currentDef)
+                
+            }
     }
     else{
-        if(writtenInput===currentTerm)alert("Correct")
-            else alert("Incorrect. Correct answer was: "+currentTerm)
+        if(writtenInput===currentTerm){
+            alert("Correct")
+            nextPair()
+        }
+            else {
+                setHintVisible(false);
+                setShowRealWord(true);
+                setCorrectWord(currentTerm)
+            }
     }
-    
+}
+//Allows the user to move on without guessing the term/def
+const handleIDKBro = () =>{
+    setHintVisible(false);
+    setShowRealWord(true);
+    if(answerWithDefinition) setCorrectWord(currentDef)
+    else setCorrectWord(currentTerm)
+}
+const nextPair=()=>{
+    setHintVisible(false);
     let c = cardIndex;
     c=c+1;
     c%=setList.length;
@@ -118,26 +117,25 @@ function Written(){
     setCurrentTerm(setList[c][0])
     setCurrentDef(setList[c][1])
     setWrittenInput("");
-}
-//Allows the user to move on without guessing the term/def
-const handleIDKBro = () =>{
-    setHintVisible(false);
-    if(answerWithDefinition)alert("The answer is: "+ currentDef)
-    else alert("The answer is: "+ currentTerm)
-let c = cardIndex;
-c=c+1;
-c%=setList.length;
-setCardIndex(c)
-setCurrentTerm(setList[c][0])
-setCurrentDef(setList[c][1])
-setWrittenInput("");
+    setHintWord(handleSettingHintWord(answerWithDefinition,c))
+    setShowRealWord(false)
 }
 
 const handleAnswerWithSettingsChanged=()=>{
     setAnswerWithDefinition((prevState) =>{
-        setHintWord(!prevState?currentDef.split(" ").slice(0, 3):currentTerm.split(" ").slice(0, 3).join(' '))
+        setHintWord(handleSettingHintWord(!prevState,undefined))
         return !prevState
     } );
+}
+
+const handleSettingHintWord=(awd=answerWithDefinition,tempIndex=cardIndex)=>{
+    let tempWord = ''
+    if(awd) tempWord = setList[tempIndex][1]
+    else tempWord = setList[tempIndex][0]
+    //If the word count is 3 or less, hint is a fourth of the original word
+    if(tempWord.split(" ").length<=3) return tempWord.slice(0,tempWord.length/4)
+    //If word count is greater than 3, display the first 3 words
+    else return tempWord.split(" ").slice(0, 3).join(' ')
 }
 return(
     <>
@@ -169,12 +167,25 @@ return(
             <div id="writtenCenteringDiv">
                 <TitleHeader title={"Written"}/>
                 <h2 id="writtenShownWord">{answerWithDefinition?currentTerm:currentDef}</h2>
+                {!showRealWord?
                 <div id="writtenHintDiv">
                     <h2 id="WrittenHint" style={hintVisible?{visibility:"visible"}:{visibility:"hidden"}}>{hintWord}</h2>
                     <button id="writtenHintButton" onClick={()=>handleHintBtn()}>Hint</button>
                 </div>
+                :
+                <></>
+                }
+                <div id='WrittenCorrectWordContainer'>
+                    <p id='WrittenCorrectDefinition'>{showRealWord?correctWord:""}</p>
+                </div>
                 <div>
-                    <input id="writtenInput" type="text" value={writtenInput} onChange={(e)=>setWrittenInput(e.target.value)}/>
+                    <input id="writtenInput" type="text" value={writtenInput} onChange={(e)=>{
+                        setWrittenInput(e.target.value)
+                        if(showRealWord&&e.target.value===correctWord){
+                            nextPair()
+                        }
+                    }
+                    }/>
                 </div>
 
                 <div id="writtenBtnDiv">
