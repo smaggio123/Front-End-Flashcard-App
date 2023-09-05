@@ -1,9 +1,9 @@
-
-#editCardContainingDiv{
+.editCardContainingDiv{
     padding-bottom: 50px;
     margin: 10px 20%;
     border-radius: 10px;
     border: 1px solid white;
+    height: auto;
 }
 
 #EditCardHeaderContainer{
@@ -18,16 +18,9 @@
     color: white;
     font-size: larger;
     height: 100%;
-    /*
-    padding-top: 1%;
-    height:2vh;
-    text-align: left;
-    margin-left: 3vw;
-    */
 }
 
 #EditCardRemoveBtn{
-    /* margin-top: 20px; */
     background-color: transparent;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -35,14 +28,6 @@
     color: white;
     outline: none;
     border: none;
-    /*
-    position: relative;
-    right: 0;
-    top: 50%;
-    */
-}
-#EditCardRemoveBtnLogo{
-    /* background-color: transparent; */
 }
 
 #EditCardIndexDivider{
@@ -59,6 +44,10 @@
     justify-Content: space-between;
     margin: 0 100px;
 }
+
+.EditCardTermDefContainer{
+    width: 45%;
+}
 .editCardInput{
     border: none;
     border-bottom: 1px solid white;
@@ -66,8 +55,8 @@
     color: white;
     resize: none;
     overflow: hidden;
-    width: 45%;
     outline:none;
+    width: 100%;
 }
 
 .editCardInput:focus{
