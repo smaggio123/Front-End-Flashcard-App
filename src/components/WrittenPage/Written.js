@@ -43,6 +43,8 @@ function Written(){
     const [settingsActive,setSettingsActive]=useState(false);
     const [writingInputShuffleSet,setwritingInputShuffleSet]=useState(false);
     const [answerWithDefinition,setAnswerWithDefinition] = useState(true);
+    const [settingOptionRewriteWordOptional,setSettingOptionRewriteWordOptional] = useState(false);
+    const [settingOptionCaseSensitive,setSettingOptionCaseSensitive] = useState(true);
     const [hintWord,setHintWord] = useState(currentDef.split(" ").slice(0, 3).join(' '))
     
     // Fisher-Yates shuffle algorithm
@@ -77,36 +79,36 @@ function Written(){
     //Checks if the user got the term/def correct
     const handleSubmit = () =>{
         setHintVisible(false);
-        if(answerWithDefinition){
-            if(writtenInput===currentDef){
-                alert("Correct")
-                nextPair()
-            }
-            else {
-                setHintVisible(false);
-                setShowRealWord(true);
-                setCorrectWord(currentDef)
-                
-            }
-    }
-    else{
-        if(writtenInput===currentTerm){
+        let answer = answerWithDefinition?currentDef:currentTerm;
+        if((settingOptionCaseSensitive&&writtenInput===answer)||(!settingOptionCaseSensitive&&writtenInput.toUpperCase()===answer.toUpperCase())){
             alert("Correct")
             nextPair()
         }
-            else {
+        else {
+            if(settingOptionRewriteWordOptional){
+                alert("Incorrect, the answer was: "+answer)
+                nextPair();
+            }
+            else{
                 setHintVisible(false);
                 setShowRealWord(true);
-                setCorrectWord(currentTerm)
+                setCorrectWord(answer)
             }
-    }
+        }
 }
 //Allows the user to move on without guessing the term/def
 const handleIDKBro = () =>{
-    setHintVisible(false);
-    setShowRealWord(true);
-    if(answerWithDefinition) setCorrectWord(currentDef)
-    else setCorrectWord(currentTerm)
+    if(settingOptionRewriteWordOptional){
+        let answer = answerWithDefinition?currentDef:currentTerm;
+        alert("The answer was: "+answer)
+        nextPair();
+    }
+    else{
+        setHintVisible(false);
+        setShowRealWord(true);
+        if(answerWithDefinition) setCorrectWord(currentDef)
+        else setCorrectWord(currentTerm)
+    }
 }
 const nextPair=()=>{
     setHintVisible(false);
@@ -150,7 +152,8 @@ return(
                             Options:
                             -Swapping terms with definitions
                             -shuffle terms
-                            
+                            -Rewrite answer optional
+                            -case sensitive
                         */}
                         <div className="writtenSettingAttributes">
                             <h3 id="writtenSettingAnswerDefs">Answer with definitions</h3>
@@ -159,6 +162,14 @@ return(
                         <div className="writtenSettingAttributes">
                             <h3 id="writtenSettingShuffle">Shuffle set</h3>
                             <input type="checkbox" checked={writingInputShuffleSet} onChange={()=>handleShuffle()}/>
+                        </div>
+                        <div className="writtenSettingAttributes">
+                            <h3 id="writtenSettingRewrite">Rewrite optional</h3>
+                            <input type="checkbox" checked={settingOptionRewriteWordOptional} onChange={()=>setSettingOptionRewriteWordOptional(!settingOptionRewriteWordOptional)}/>
+                        </div>
+                        <div className="writtenSettingAttributes">
+                            <h3 id="writtenSettingCaseSensitive">Case sensitive</h3>
+                            <input type="checkbox" checked={settingOptionCaseSensitive} onChange={()=>setSettingOptionCaseSensitive(!settingOptionCaseSensitive)}/>
                         </div>
                     </div>
                 </div>
@@ -181,8 +192,8 @@ return(
                 <div>
                     <input id="writtenInput" type="text" value={writtenInput} onChange={(e)=>{
                         setWrittenInput(e.target.value)
-                        if(showRealWord&&e.target.value===correctWord){
-                            nextPair()
+                        if(showRealWord&&(settingOptionRewriteWordOptional||((settingOptionCaseSensitive&&e.target.value===correctWord)||(!settingOptionCaseSensitive&&e.target.value.toUpperCase()===correctWord.toUpperCase())))){
+                                nextPair()
                         }
                     }
                     }/>
