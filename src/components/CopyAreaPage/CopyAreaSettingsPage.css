@@ -1,0 +1,86 @@
+#CopyAreaSettingsPageBorder{
+    margin-top: 100px;
+    width: 98vw;
+    justify-content: center;
+}
+#CopyAreaSettingsPageContainer{
+    border: 1px solid white;
+    width: 50vw;
+    text-align: center;
+    border-radius: 50px;
+    justify-content: center;
+    margin: auto;
+}
+#CopyAreaSettingsPageHeader{
+    padding-top: 30px;
+    padding-bottom: 20px;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+}
+#CopyAreaSettingsPageContents{
+    height: 80%;
+    justify-content: center;
+    margin: auto;
+}
+.CopyAreaSettingsPageSettingAttributes{
+    margin-top: 25px;
+    justify-content:space-between;
+    display: flex;
+    color:white;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+#CopyAreaSettingsPageApplyBtn{
+    background-color: transparent;
+    outline: none;
+    border: 2px solid white;
+    border-radius: 20px;
+    color: white;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    height: 5vh;
+    width: 100px;
+
+}
+#CopyAreaSettingsPageApplyBtn:hover{
+    background-color: grey;
+}
+#CopyAreaSettingsPageApplyBtn:focus{
+    border: 2px solid yellow;
+}
+
+.CopyAreaSettingsPageNumberInput{
+    margin-top: 10px;
+    height: 35px;
+    width: 50px;
+    border: none;
+    /* border-bottom: 1px solid white; */
+    border-bottom: 2px solid white;
+    /* border-radius: 10px; */
+    background-color: transparent;
+    color: white;
+    /* resize: none; */
+    overflow: auto;
+    /* width: 45%; */
+    outline:none;
+}
+
+.CopyAreaSettingsPageNumberInput:focus{
+  border-bottom: 2px solid yellow; /* Change to desired color when focused or hovered */
+}
+#settings-btn{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    height:60px;
+    width:70px;
+    border:none;
+    background-color: transparent;
+    color: white;
+}
+#CopyAreaSettingsPageWarningMessage{
+    color: red;   
+}

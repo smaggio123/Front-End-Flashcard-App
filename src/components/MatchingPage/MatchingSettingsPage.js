@@ -5,7 +5,6 @@ function MatchingSettingsPage(props){
     const {fullReset,isSettingsShowing,setIsSettingsShowing,nextStepSize,setNextStepSize,numberOfPairs,setNumberOfPairs} = props;
     const [numPairsInput,setNumPairsInput] = useState(numberOfPairs)
     const [numNewTermsInput,setNumNewTermsInput] = useState(nextStepSize)
-    // const [doShuffleInput,setDoShuffleInput] = useState(false)
     const [isWarningMessageShow,setIsWarningMessageShow] = useState(false)
     const [warningMessage,setWarningMessage] = useState("")
     const minPairs = 3;
