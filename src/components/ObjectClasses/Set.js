@@ -2,6 +2,50 @@ class MySet{
     #setId
     #folderId
     #userId
+    #listOfData=[];
+    constructor(LOD,s,f,u){
+        this.#listOfData = LOD;
+        this.#setId = s;
+        this.#folderId = f;
+        this.#userId = u;
+    }
+    getSetId(){
+        return this.#setId;
+    }
+    setSetId(s){
+        this.#setId = s;
+    }
+    getFolderId(){
+        return this.#folderId;
+    }
+    setFolderId(f){
+        this.#folderId = f;
+    }
+    getUserId(){
+        return this.#userId;
+    }
+    setUserId(u){
+        this.#userId = u;
+    }
+    getListOfData(){
+        return this.#listOfData;
+    }
+    setListOfData(l){
+        this.#listOfData = l;
+    }
+    getListOfDataLength(){
+        return this.#listOfData.length;
+    }
+    addData(d){
+        this.#listOfData.push(d)
+    }
+}
+export default MySet;
+/*
+class MySet{
+    #setId
+    #folderId
+    #userId
     #listOfPairs=[];
     #currentIndex=0;
     constructor(LOP,s,f,u){
@@ -54,3 +98,4 @@ class MySet{
     }
 }
 export default MySet;
+*/

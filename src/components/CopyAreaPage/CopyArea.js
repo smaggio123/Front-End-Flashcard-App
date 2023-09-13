@@ -5,19 +5,21 @@ import MySet from '../ObjectClasses/Set'
 import { React,useState, useRef, useEffect } from 'react';
 import CopyAreaSettingsPage from "./CopyAreaSettingsPage";
 import MyPair from "../ObjectClasses/Pair";
+import ListOfPairs from "./ListOfPairs";
 
 function CopyArea(){
     // We need ref in this, because we are dealing
     // with JS setInterval to keep track of it and
     // stop it when needed
     const Ref = useRef(null);
-    const [mySet,setMySet] = useState(new MySet([
-        new MyPair(1,"word1","def1"),
-        new MyPair(2,"Diffusion","The passive movement of particles from an area of high concentration to low concentration"),
-        new MyPair(3,"Osmosis","A passive movement of water molecules through a semi permeable membrane"),
-        new MyPair(4,"Active Transport","An active movement where an input of energy is required"),
-        new MyPair(5,"word5","def5")
-    ]),null,null,null);
+    const [myList,setMyList] = useState(new ListOfPairs(new MySet([
+            new MyPair(0,-1,"word1","def1"),
+            new MyPair(1,-1,"Diffusion","The passive movement of particles from an area of high concentration to low concentration"),
+            new MyPair(2,-1,"Osmosis","A passive movement of water molecules through a semi permeable membrane"),
+            new MyPair(3,-1,"Active Transport","An active movement where an input of energy is required"),
+            new MyPair(4,-1,"word5","def5")
+        ],null,null,null))
+    )
     const [showDefinition,setShowDefinition] = useState(true);
     const [writtenInput, setWrittenInput] = useState("");
     const [copyAreaBorderColorWhite, setCopyAreaBorderColorWhite] = useState(true);
@@ -67,9 +69,9 @@ function CopyArea(){
     //Allows the user to move on without guessing the term/def
     const handleRightBtnClick = (ignoreBorderColor=false) =>{
         if(ignoreBorderColor||copyAreaBorderColorWhite){
-            const newSet = new MySet(mySet.getListOfPairs(),null,null,null);
-            newSet.setCurrentIndex((mySet.getCurrentIndex()+1)%mySet.getListOfPairsLength())
-            setMySet(newSet);
+            const newSet = new ListOfPairs(myList.getSet());
+            newSet.setCurrentIndex((myList.getCurrentIndex()+1)%myList.getListLength())
+            setMyList(newSet);
             setWrittenInput("");
             setCopyAreaBorderColorWhite(true)
             setCanType(true)
@@ -77,14 +79,14 @@ function CopyArea(){
     }
     const handleLeftBtnClick = () =>{
         if(copyAreaBorderColorWhite){
-            const newSet = new MySet(mySet.getListOfPairs(),null,null,null);
-            if(mySet.getCurrentIndex()===0){
-                newSet.setCurrentIndex(mySet.getListOfPairsLength()-1)
+            const newSet = new ListOfPairs(myList.getSet());
+            if(myList.getCurrentIndex()===0){
+                newSet.setCurrentIndex(myList.getListLength()-1)
             }
             else{
-                newSet.setCurrentIndex((mySet.getCurrentIndex()-1))
+                newSet.setCurrentIndex((myList.getCurrentIndex()-1))
             }
-            setMySet(newSet);
+            setMyList(newSet);
             setWrittenInput("");
             setCopyAreaBorderColorWhite(true)
             setCanType(true)
@@ -103,7 +105,7 @@ function CopyArea(){
                 setTotalTime(resetTime)
             }
             let inputToCompare = val;
-            let answer=settingOptionAnswerWithDef?mySet.getCurrentDef():mySet.getCurrentTerm();
+            let answer=settingOptionAnswerWithDef?myList.getCurrentDef():myList.getCurrentTerm();
             if(!settingOptionCaseSensitive){
                 inputToCompare = inputToCompare.toLowerCase()
                 answer = answer.toLowerCase()
@@ -115,7 +117,6 @@ function CopyArea(){
                 setOperation(listOfOperations.goRight)
                 setTotalTime(3)
             }
-            
         }
     }
         
@@ -136,9 +137,9 @@ function CopyArea(){
                     </div>
                 </div>
             <div id="copyAreaContainingDiv">
-                <h2 id="copyAreaCurrentTerm">{settingOptionAnswerWithDef?mySet.getCurrentTerm():mySet.getCurrentDef()}</h2>
+                <h2 id="copyAreaCurrentTerm">{settingOptionAnswerWithDef?myList.getCurrentTerm():myList.getCurrentDef()}</h2>
                 <div id="copyAreaContainingShownWords" style={{border: copyAreaBorderColorWhite? "1px solid white": "1px solid green"}}>
-                    <p id="copyAreaShowingDef" style={{visibility: showDefinition? "visible":"hidden"}}>{settingOptionAnswerWithDef?mySet.getCurrentDef():mySet.getCurrentTerm()}</p>
+                    <p id="copyAreaShowingDef" style={{visibility: showDefinition? "visible":"hidden"}}>{settingOptionAnswerWithDef?myList.getCurrentDef():myList.getCurrentTerm()}</p>
                 </div>
                 <div id="copyAreaInputArea">
                     <textarea id="copyAreaInput" value={writtenInput} onChange={(e)=>copyAreaHandleTextInput(e.target.value)}></textarea>

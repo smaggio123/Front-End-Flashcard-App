@@ -1,16 +1,23 @@
 class MyPair{
+    #index
     #pairId
     #term='';
     #def='';
     #setId
     #folderId
     #userId
-    constructor(p,t,d){
+    constructor(i,p,t,d){
+        this.#index = i;
         this.#pairId = p;
         this.#term = t;
         this.#def = d;
     }
-    
+    getIndex(){
+        return this.#index;
+    }
+    setIndex(i){
+        this.#index = i;
+    }
     getPairId(){
         return this.#pairId;
     }

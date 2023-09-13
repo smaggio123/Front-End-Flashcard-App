@@ -5,46 +5,46 @@ import EditCard from './EditCard';
 import EditTitleCard from './EditTitleCard';
 import LearnBtn from '../LearnBtn';
 import TitleHeader from '../TitleHeader';
+import MySet from '../ObjectClasses/Set';
+import MyPair from '../ObjectClasses/Pair';
+
 function EditPage (props) {
     const {mode,modeEnum} = props;
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const selectedData = searchParams.get('data');
     const [titleOfSet,setTitleOfSet] = useState(selectedData?selectedData:"");
-
-    const [getList,setList] = useState(()=>{
-        //Do backend stuff here
-
-        //front end testing
-        let list = [];
-        if(mode === modeEnum.editSetMode){
-            list = [
-                {id: 0, term: "term1", definition: "def1"},
-                {id: 1, term: "term2", definition: "def2"},
-                {id: 2, term: "term3", definition: "def3"},
-                {id: 3, term: "term4", definition: "def4"},
-                {id: 4, term: "term5", definition: "def5"}
-            ]
+    const [mySet,setMySet] = useState(
+        ()=>{
+            if(mode === modeEnum.editSetMode){
+                return new MySet([
+                    new MyPair(0,-1,"word1","def1"),
+                    new MyPair(1,-1,"Diffusion","The passive movement of particles from an area of high concentration to low concentration"),
+                    new MyPair(2,-1,"Osmosis","A passive movement of water molecules through a semi permeable membrane"),
+                    new MyPair(3,-1,"Active Transport","An active movement where an input of energy is required"),
+                    new MyPair(4,-1,"word5","def5"),
+                ],null,null,null)
+            }
+            else if(mode === modeEnum.addSetMode){
+                return new MySet([new MyPair(0,-1,"","")])
+            }
+            else{
+                return new MySet();
+            }
         }
-        else if(mode === modeEnum.addSetMode){
-            list = [{id:0,term:"",definition:""}]
-        }
-        else{
-            list = [];
-        }
-        return list
-    });
+    );
 
     const EditPageSaveClicked = () =>{
         //Implement saving list here
         console.log("title: "+titleOfSet)
-        console.log(getList)
+        console.log(mySet.getListOfData())
     }
 
     const handleAddBtnClicked=()=>{
-        const tempList = [...getList];
-        tempList.push({id:getList.length,term:"",definition:""})
-        setList(tempList)
+        const tempList = [...mySet.getListOfData()];
+        tempList.push(new MyPair(mySet.getListOfDataLength(),-1,"",""));
+        const tempSet = new MySet(tempList,mySet.getSetId(),mySet.getFolderId(),mySet.getUserId());
+        setMySet(tempSet)
     }
 
     return(
@@ -53,9 +53,9 @@ function EditPage (props) {
             <div id='editPageContainingDiv'>
                 <TitleHeader title={"Edit"}/>
                 <EditTitleCard titleOfSet={titleOfSet} setTitleOfSet={setTitleOfSet}/>
-                {getList.map((item, index) => (
-                    <div key={item.id}>
-                    <EditCard term={item.term} definition={item.definition} getList={getList} setList={setList} pairIndex={index}/>
+                {mySet.getListOfData().map((item, index) => (
+                    <div key={item.getIndex()}>
+                    <EditCard thisPair={item} mySet={mySet} setMySet={setMySet} cardIndex={index}/>
                     </div>
                 ))}
                 <button id='EditPageAddBtn' onClick={()=>handleAddBtnClicked()}><i className="fa-solid fa-plus" style={{color:"#fafafa"}}></i></button>
