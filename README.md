@@ -10,9 +10,8 @@
 1. Download node.js
 2. Clone the repository
 3. Open up the project in your text editor, I recommend Visual Studio Code
-4. Start the code
-  i. In the command prompt (ctrl+` for VS Code) type npm start
-6. The website should pop up
+4. Start the code: In the command prompt (ctrl+` for VS Code) type npm start
+5. The website should pop up
 
 ### Back End
 Link will be here
