@@ -20,7 +20,7 @@ Link will be here
 
 ### Copy Area
 
-#### User copies term/definition. Once user starts typing, the term/definition shown will disappear and the timer starts. When the timer runs out, the term/definition will show up again. Then the user can continue typing, the term/definition will disappear, and the timer will start again. Every time the user types a character, the timer resets. Once the user writes the correct corresponding term/definition, the border will turn green and the timer will start to give the user time to read the correct answer in full one more time before moving on to the next term/definition.
+#### User copies term/definition. Once user starts typing, the term/definition shown will disappear and the timer starts. When the timer runs out, the term/definition will show up again. Then the user can continue typing, the term/definition will disappear, and the timer will start again. Every time the user types a character, the timer resets. Once the user writes the correct corresponding term/definition, the border will turn green and the timer will start. This gives the user time to read the correct answer one more time before moving on to the next term/definition.
 
 ### Matching
 
@@ -32,7 +32,7 @@ Link will be here
 
 ### Test
 
-#### User is tested with true/false, matching, multiple choice, and written questions
+#### User is tested with true/false, matching, multiple choice, and written questions. When the user submits the test, the app will give the user a grade based on their test results.
 <!--
 
 ## Learning features
