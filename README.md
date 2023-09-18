@@ -25,15 +25,15 @@ Link will be here
 
 ### Matching
 
-### To play, the user clicks on a term and then click on a definition. If they choose the corresponding definition, the borders should completely fade. If not, it currently just deselects the term and selects only the definition (or vice versa). Once all of the terms and definitions are matched, the app automatically moves on to the next set of terms and definitions.
+#### To play, the user clicks on a term and then click on a definition. If they choose the corresponding definition, the borders should completely fade. If not, it currently just deselects the term and selects only the definition (or vice versa). Once all of the terms and definitions are matched, the app automatically moves on to the next set of terms and definitions.
 
-## Written
+### Written
 
-### User has to write the corresponding term/definition. If the user has trouble remembering, they can get a hint. If they write it incorrectly, they have to copy the correct term/definition. When the user copies the correct term/definition, the app moves on to the next term/definition.
+#### User has to write the corresponding term/definition. If the user has trouble remembering, they can get a hint. If they write it incorrectly, they have to copy the correct term/definition. When the user copies the correct term/definition, the app moves on to the next term/definition.
 
-## Test
+### Test
 
-### User is tested with true/false, matching, multiple choice, and written questions
+#### User is tested with true/false, matching, multiple choice, and written questions
 <!--
 
 ## Learning features
