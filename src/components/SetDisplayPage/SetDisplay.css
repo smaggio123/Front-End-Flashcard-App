@@ -1,18 +1,16 @@
 .setDisplayContainer{
     position:absolute;
-    /* background-color: white; */
     height:100%;
     width:80%;
     margin-left: 10%;
 }
 .setDisplayHeader{
-    /* color:black; */
     color:white;
 }
 
 .setDisplayButtonContainer{
+    margin-left: 50px;
     display:flex;
-    /* justify-content: space-between; */
 }
 .setDisplayOptionButton{
     background-color: transparent;
@@ -36,7 +34,6 @@
     width: 125px;
     border-radius: 20px;
     border: 1px solid white;
-     /* rgb(141, 141, 141); */
 }
 .setDisplayButtonText{
     color:white;
@@ -44,11 +41,11 @@
     margin-top: 10%;
 }
 .setDisplayCardContainer{
+    margin-top: 30px;
     display:flex;
 }
 
 .setDisplayCard{
-    /* position:absolute; */
     height:300px;
     width: 70%;
     top:50%;
@@ -61,22 +58,32 @@
     font-size:x-large;
     position: relative;
     margin-top: 125px;
-    /* margin-left: 25%; */
-    /* background-color: black; */
     color: white;
 }
 .setDisplaySetCard{
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     display:flex;
     justify-content: space-between;
     border: 1px solid white;
 }
+#SetDisplayCardContainer{
+    margin: auto;
+    margin-top: 50px;
+    width: 90%;
+    justify-content: center;
+    padding-bottom: 10px;
+}
 .setDisplaySetCardWord{
     font-size: medium;
     color:white;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 15px;
+}
+#SetDisplayTerm{
+    border-right: 1px solid white;
+    width: 40%;
+}
+#SetDisplayDef{
+    width: 60%;
 }
 .setDisplayCardButton{
     height:50px;

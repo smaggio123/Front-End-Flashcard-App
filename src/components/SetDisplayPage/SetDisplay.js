@@ -8,8 +8,6 @@ function SetDisplay () {
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const selectedData = searchParams.get('data');
-    // var cardIndex=0;
-    // var wordRevealed=0;
     const setList = [["word1","def1"],["word2","def2"],["word3","def3"],["word4","def4"],["word5","def5"]];
     const [cardWord, setCardWord] = useState(setList[0][0]);
     const [cardIndex, setCardIndex] = useState(0);
@@ -85,14 +83,13 @@ function SetDisplay () {
                 </div>
                 <button className='setDisplayCardButton' onClick={()=>handleRight()}><i className="fa-solid fa-arrow-right"></i></button>
             </div>
-            <div>
-            {setList.map((item, index) => (
-                <div className='setDisplaySetCard'>
-                    <h3 className='setDisplaySetCardWord'>{item[0]}</h3>
-                    <h3 className='setDisplaySetCardWord'>|</h3>
-                    <h3 className='setDisplaySetCardWord'>{item[1]}</h3>
-                </div>
-            ))}
+            <div id='SetDisplayCardContainer'>
+                {setList.map((item, index) => (
+                    <div key={index} className='setDisplaySetCard'>
+                        <h3 className='setDisplaySetCardWord' id='SetDisplayTerm'>{item[0]}</h3>
+                        <h3 className='setDisplaySetCardWord' id='SetDisplayDef'>{item[1]}</h3>
+                    </div>
+                ))}
             </div>
         </div>
         
