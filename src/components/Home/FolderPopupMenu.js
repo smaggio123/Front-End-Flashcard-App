@@ -2,13 +2,13 @@ import React from 'react'
 import './FolderPopupMenu.css'
 
 
-function FolderPopupMenu({list, setList, index, setShowMyPopUpMenu}) {
+function FolderPopupMenu({list, setList, selectedIndex, listedIndex, setShowMyPopUpMenu}) {
     const handleDeleteClicked = () => {
         if(window.confirm("Are you sure you wish to delete?")){
             //Do backend stuff here
 
             //Frontend stuff
-            setList(list.filter((value, iindex) => index !== iindex));
+            setList(list.filter((value, iindex) => selectedIndex !== iindex));
         }
         else{
             alert("Did not delete")
@@ -16,17 +16,17 @@ function FolderPopupMenu({list, setList, index, setShowMyPopUpMenu}) {
     }
     const renameOptionClicked = () => {
         let tempList = list;
-        let userInputName = prompt("Rename folder",list[index]);
+        let userInputName = prompt("Rename folder",list[selectedIndex]);
         if(userInputName!=null){
             setShowMyPopUpMenu(false)
-            tempList[index] = userInputName;
+            tempList[selectedIndex] = userInputName;
             setList(tempList);
         }
     }
 
     return(
         <>
-            <div id='FolderPopupMenuContainer'>
+            <div style={{top:`${(selectedIndex*20)+149}px`}} id='FolderPopupMenuContainer'>
                 <button className='FolderPopupMenuBtn' onClick={()=>renameOptionClicked()}>Rename</button>
                 <hr className='FolderPopupMenuDivider'/>
                 <button className='FolderPopupMenuBtn' onClick={() => handleDeleteClicked()}>Delete</button>

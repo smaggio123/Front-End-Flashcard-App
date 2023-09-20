@@ -39,22 +39,25 @@ function HomeLeftBar() {
             <div className="sidebar">
                 {/* Left side div */}
                 <div className="left-sidebar">
-                <table id='homeLeftBarTable'>
-                    {folderList.map((item, index) => (
-                        <tr key={index} className='homeLeftBarTr'>
-                            <td className={`homeLeftBarTd ${selectedFolder===index ? 'clicked' : ''}`} key={index} onClick={() => handleFolderClick(index)}>{folderList[index]}
-                            <button id="HomeLeftBarMenuBtn" onClick={()=>popupClicked(index)}>...</button>
-                            </td>
+                    <div id='homeLeftBarTable'>
+                        <div className='homeLeftBarFolderSelect'>Folders</div>
+                        {folderList.map((item, index) => (
+                            <div key={index}>
+                            <div className='HomeLeftBarFolder'>
+                                <div className={`homeLeftBarFolderSelect ${selectedFolder===index ? 'clicked' : ''}`} key={index} onClick={() => handleFolderClick(index)}>{folderList[index]}
+                                    <button id="HomeLeftBarMenuBtn" onClick={()=>popupClicked(index)}>...</button>
 
+                                </div>
+                            </div>
                             {showMyPopUpMenu&&currentPopupMenuIndex===index?(
-                                    <FolderPopupMenu list={folderList} setList={setFolderList} index={currentPopupMenuIndex} setShowMyPopUpMenu={setShowMyPopUpMenu}/>
-                                ):<></>}
-                        </tr>
-                    ))}
-                    <tr>
-                        <td className='homeLeftBarTd' onClick={()=>handleAddClicked()}>+</td>
-                    </tr>
-                </table>
+                                <div>
+                                    <FolderPopupMenu list={folderList} setList={setFolderList} selectedIndex={currentPopupMenuIndex} listedIndex={index} setShowMyPopUpMenu={setShowMyPopUpMenu}/>
+                                </div>
+                            ):<></>}
+                            </div>
+                        ))}
+                        <button className='homeLeftBarFolderSelect' onClick={()=>handleAddClicked()}>+</button>
+                    </div>
                 </div>
             </div>
         </>

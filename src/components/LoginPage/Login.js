@@ -11,11 +11,12 @@ function Login () {
     async function log_in(){
         if(username!=="" && password !==""){
             var verifyingUser = await UserService.getUserByUsername(username);
+            console.log(verifyingUser)
             if(verifyingUser.length>0){
                 // console.log(verifyingUser);
-                // console.log(verifyingUser[0].username)
                 if(verifyingUser[0].username===username&&verifyingUser[0].password===password){
-                    navigate("/books")
+                    //navigate("/home")
+                    navigate(`/home?user=${encodeURIComponent(verifyingUser[0].id)}`)
                 }
             }
             else{

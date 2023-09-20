@@ -2,9 +2,9 @@
     position: absolute;
     background-color: grey;
     width: 8vw;
-    right: 25px;
+    right: 20px;
     border-radius: 10px;
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 
 .PopupMenuBtn{

@@ -8,9 +8,11 @@ import './HomeBody.css'
 function Home () {
     return(
         <>
-            <HomeHeader/>
-            <HomeLeftBar/>
-            <HomeBody/>
+            <div id="HomeContainer">
+                <HomeHeader/>
+                <HomeLeftBar/>
+                <HomeBody/>
+            </div>
         </>
     )
 }

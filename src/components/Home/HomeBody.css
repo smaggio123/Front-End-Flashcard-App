@@ -2,6 +2,42 @@
     margin-left: 20%;
     padding: 20px;
 }
+
+#HomeBodyListContainer{
+    color: white;
+    width: 80%;
+    height: 10%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+#HomeBodySet{
+    border: 1px solid white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    height: 20px;
+    width:100%;
+}
+
+#homeBodyMenuBtn{
+    color: white;
+    border: 1px solid white;
+    background-color: transparent;
+    position: absolute;
+    right: 10px;
+    visibility: hidden;
+    
+}
+/* .HomeBodySet:hover #PopupMenuContainer{
+    visibility: visible;
+}
+*/
+#HomeBodySet:hover #homeBodyMenuBtn  {
+    visibility: visible;
+} 
+
 #homeBodyTable{
     color: white;
     width: 80%;
@@ -41,21 +77,7 @@ thead{
     text-align: center;
 }
 
-#homeBodyMenuBtn{
-    color: white;
-    border: 1px solid white;
-    background-color: transparent;
-    position: absolute;
-    right: 10px;
-    visibility: hidden;
-    
-}
-.homeBodyTr:hover #PopupMenuContainer{
-    visibility: visible;
-}
-.homeBodyTr:hover #homeBodyMenuBtn  {
-    visibility: visible;
-}
+
 #HomeBodyAddBtn{
     position: fixed;
     bottom: 5vh;

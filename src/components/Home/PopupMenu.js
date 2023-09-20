@@ -25,7 +25,7 @@ function PopupMenu({list, setList, index}) {
     
     return(
         <>
-            <div id='PopupMenuContainer'>
+            <div style={{top:`${(index*81.5)+146}px`}} id='PopupMenuContainer'>
                 <button className='PopupMenuBtn' onClick={()=> handleEditClicked()}>Edit</button>
                 <hr className='PopupMenuDivider'/>
                 <button className='PopupMenuBtn' onClick={() => handleDeleteClicked()}>Delete</button>
